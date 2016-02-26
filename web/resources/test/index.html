@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/min.bootstrap.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="../js/common/jquery-1.11.3.min.js"></script>
+    <script src="../js/common/bootstrap.min.js"></script>
+    <script>
+        $('.dropdown-toggle').dropdown();
+        $('.collapse').collapse();
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#mainnav-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainnav-collapse">
+                <div class="hidden-xs hidden-sm" style="line-height:20px; padding-top:5px; float:left"><a href="/">Home</a></div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/foundation">Overview</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/index.html#projects-list">Projects</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">People <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="http://people.apache.org/">Overview</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/dyn/closer.cgi">Download</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support Apache <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/foundation/sponsorship.html">Sponsorship</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+            <textarea class="form-control" rows="3" placeholder="请输入单号"></textarea>
+            <br>
+            <a role="button" class="btn btn-block btn-default btn-xs" href="#">confirm</a>
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-12">
+            <img src="../img/hermes_logo.png" alt="Apache Logo" style="max-width: 100%;float: right;">
+        </div>
+    </div>
+</div>
+
+<section class="bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Open.</h3>
+
+                <h5 class="no-btm-margin">The Apache Software Foundation</h5>
+
+                <p class="small">provides support for the Apache Community of open-source software projects, which provide software products for the public good.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Innovation.</h3>
+
+                <h5 class="no-btm-margin">The Apache projects are defined</h5>
+
+                <p class="small">by collaborative consensus based processes, an open, pragmatic software license and a desire to create high quality software that leads the way in its field.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Community.</h3>
+
+                <h5 class="no-btm-margin">We consider ourselves</h5>
+
+                <p class="small">not simply a group of projects sharing a server, but rather a community of developers and users.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Apache Projects</h2>
+            <p>The all-volunteer ASF develops, stewards, and incubates more than 350 Open Source projects and initiatives that cover a wide range of technologies.
+                From Abdera to Zookeeper, if you are looking for a rewarding experience in Open Source and industry leading software, chances are you are going to find it here.
+                <a href="/foundation/press/kit/#powerby">Are you powered by Apache?</a>
+            </p>
+            <!-- Featured Projects Section    -->
+            <div class="container">
+                <div class="row">
+                    <h3>Featured Project<span class="visible-md-inline visible-lg-inline">s</span></h3>
+                    <div class="col-md-3 col-sm-12">
+                        <!-- tabs left -->
+                        <div class="tabbable tabs-left visible-md-inline visible-lg-inline">
+                            <ul class="nav nav-tabs">
+
+                                <li class="active">
+                                    <a href="#1" data-toggle="tab">Apache Directory Server</a>
+                                </li>
+
+                                <li>
+                                    <a href="#2" data-toggle="tab">Apache Commons JCS</a>
+                                </li>
+
+                                <li>
+                                    <a href="#3" data-toggle="tab">Apache Abdera</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <div class="tab-content">
+
+                            <div class="tab-pane fade in active" id="1">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-responsive center-block" src="/img/directory.jpg" alt="Logo">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h4 class="no-btm-margin"><a href="http://directory.apache.org/apacheds/1.5">Apache Directory Server</a></h4>
+                                        <p>ApacheDS is an extensible and embeddable directory server entirely written in Java, which has been certified LDAPv3 compatible by the Open Group. Besides LDAP it supports Kerberos 5 and the Change Password Protocol. It has been designed to introduce triggers, stored procedures, queues and views to the world of LDAP...</p>
+                                        <a class="btn btn-default btn-sm" href="http://directory.apache.org/apacheds/1.5" role="button">Learn More...</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade in " id="2">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-responsive center-block" src="/img/commons.jpg" alt="Logo">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h4 class="no-btm-margin"><a href="http://commons.apache.org/proper/commons-jcs/">Apache Commons JCS</a></h4>
+                                        <p>Comprehensive Caching System</p>
+                                        <a class="btn btn-default btn-sm" href="http://commons.apache.org/proper/commons-jcs/" role="button">Learn More...</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade in " id="3">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <img class="img-responsive center-block" src="/img/abdera.jpg" alt="Logo">
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <h4 class="no-btm-margin"><a href="http://abdera.apache.org">Apache Abdera</a></h4>
+                                        <p>The goal of the Apache Abdera project is to build a functionally-complete, high-performance implementation of the IETF Atom Syndication Format (RFC 4287) and Atom Publishing Protocol (RFC 5023) specifications.</p>
+                                        <a class="btn btn-default btn-sm" href="http://abdera.apache.org" role="button">Learn More...</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /tab-content -->
+                    </div><!-- /container -->
+                </div><!-- /tabs -->
+            </div><!-- /column -->
+            <!-- / Featured Projects Section    -->
+        </div>
+    </div>
+</section>
+<section class="bg-gray">
+    <div class="bg-info">
+        <div class="container">
+            <h2 class="no-btm-margin">Latest News</h2>
+            <p class="small">
+                Keep up with the ASF's news and announcements by
+                <a href="http://apache.org/foundation/mailinglists.html#foundation-announce">subscribing to the Apache Announcements List</a>,
+                and following the <a href="https://blogs.apache.org/foundation/">Foundation Blog</a>
+                and <a href="https://twitter.com/TheASF">@TheASF on Twitter</a>.
+            </p>
+        </div>
+    </div>
+    <!--
+    This section was originally dynamically generated but now only gets updated when the source page is updated, which is not often
+     -->
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <h4><a href="http://mail-archives.us.apache.org/mod_mbox/www-announce/201602.mbox/%3cD2E8B80B.57345%25sershe@apache.org%3e">[ANNOUNCE] Apache Hive 2.0.0 Released</a></h4>
+                        The Apache Hive team is proud to announce the the release of Apache Hive
+                        version 2.0.0.<br>&nbsp;<br>The Apache Hive (TM) data warehouse software facilitates querying and
+                        managing large datasets...
+                        <hr>
+
+                        <h4><a href="http://mail-archives.us.apache.org/mod_mbox/www-announce/201602.mbox/%3cCANVjZ_R+EufczToVWYQhn6NwePnVMk4NaA6STt6S+EJhTCravA@mail.gmail.com%3e">[ANNOUNCE] Apache Qpid Proton 0.12.0 released</a></h4>
+                        The Apache Qpid community is pleased to announce the immediate
+                        availability of Apache Qpid Proton 0.12.0.<br>&nbsp;<br>Qpid Proton is an AMQP 1.0 messaging library. It can be used in...
+                        <hr>
+
+                        <h4><a href="http://mail-archives.us.apache.org/mod_mbox/www-announce/201602.mbox/%3cCAGU5speC_BReW0V0wRGvoCgvyAS32KAk0pvUXEmxdBq_65Z-wQ@mail.gmail.com%3e">[ANNOUNCE] Apache SystemML 0.9.0-incubating released</a></h4>
+                        The Apache SystemML team is pleased to announce the release of Apache
+                        SystemML version 0.9.0-incubating. This is the first release as an Apache
+                        project.<br>&nbsp;<br>Apache SystemML provides declarative large-scale...
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Latest Activity</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <div>
+                            <a href="https://twitter.com/TheASF/statuses/699926395863109632">@</a>
+                            <a href="http://twitter.com/TheASF">TheASF</a>: The Apache Software Foundation Announces Apache Arrow as a Top-Level Project <a href="https://t.co/jHA2M9oO9k">https://t.co/jHA2M9oO9k</a> <a href="http://twitter.com/search?q=%23BigData">#BigData</a> <a href="http://twitter.com/search?q=%23inmemory">#inmemory</a> <a href="http://twitter.com/search?q=%23accelerator">#accelerator</a> <a href="http://twitter.com/search?q=%23layer">#layer</a>
+                        </div>
+                        <hr>
+
+                        <div>
+                            <a href="https://twitter.com/TheASF/statuses/699610076991090688">@</a>
+                            <a href="http://twitter.com/TheASF">TheASF</a>: Want to attend <a href="http://twitter.com/ApacheCon">@ApacheCon</a> and <a href="http://twitter.com/search?q=%23Apache:#BigData?">#Apache:#BigData?</a> Need travel assistance? Apply before 2 March <a href="https://t.co/ksKMYKWr3B">https://t.co/ksKMYKWr3B</a> <a href="http://twitter.com/search?q=%23opensource">#opensource</a> <a href="http://twitter.com/search?q=%23conference">#conference</a>
+                        </div>
+                        <hr>
+
+                        <div>
+                            <a href="https://twitter.com/TheASF/statuses/699357802272321537">@</a>
+                            <a href="http://twitter.com/TheASF">TheASF</a>: Did you know that new projects entering the <a href="http://twitter.com/ASFIncubator">@ASFIncubator</a> this month include Beam (<a href="http://twitter.com/search?q=%23BigData)">#BigData)</a> and Guacamole (<a href="http://twitter.com/search?q=%23Cloud)?">#Cloud)?</a> <a href="https://t.co/yalOSLCgZN">https://t.co/yalOSLCgZN</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><a href="https://blogs.apache.org/">Apache Blogs</a></h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <h5><a class="entryTitle" href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_announces87">The Apache® Software Foundation Announces Apache Arrow™ as a Top-Level Project</a></h5>
+                        <p></p><div><b><i>Open source Big Data in-memory columnar layer accelerates analytical processing and interchange by more than 100x.&nbsp;</i></b></div>
+                        <div><br></div>
+                        <div><b>Forest Hill, MD --17 Feb 2016-- </b>The Apache Software Foundation (ASF), the all-volunteer developers,...</div><p></p>
+                        <hr>
+
+                        <h5><a class="entryTitle" href="https://blogs.apache.org/infra/entry/appveyor_ci_now_available_for">AppVeyor CI now available for GitHub Mirrors</a></h5>
+                        <p></p><p><span>The ASF Infrastructure team is happy to announce that projects can how have AppVeyor CI setup on their GitHub mirrors.</span></p>
+                        <p>&nbsp;The only thing you need to do is create an...</p><p></p>
+                        <hr>
+
+                        <h5><a class="entryTitle" href="https://blogs.apache.org/foundation/entry/the_apache_news_round_up73">The Apache News Round-up: week ending 12 February 2016</a></h5>
+                        <p></p><div>We wish you a happy holiday (Spring Festival Golden Week/Vasant Panchami/Chinese New Year/President's Day/Tet/Valentine's) weekend with a summary of our activities across the Apache community:</div>
+                        <div><br></div>
+                        <div>ASF Board –the ASF Board...</div><p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-primary">
+    <div class="container">
+        <hr class="col-lg-12 hr-white">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="text-center">Copyright © 2016 The Apache Software Foundation, Licensed under the <a class="white" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.</p>
+                <p class="text-center">Apache and the Apache feather logo are trademarks of The Apache Software Foundation.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
