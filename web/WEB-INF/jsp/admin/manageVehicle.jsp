@@ -51,8 +51,8 @@
                         <div class="row">
 
                             <!-- /.col-lg-6 (nested) -->
-                            <div class="col-lg-12">
-                                <table id="vehicleTable" class="table table-bordered">
+                            <div class="col-xs-12 table-responsive">
+                                <table id="vehicleTable" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
                                         <th>id</th>

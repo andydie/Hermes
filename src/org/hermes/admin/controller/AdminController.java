@@ -114,4 +114,9 @@ public class AdminController {
     public String gotoManageVehicle(){
         return "admin/manageVehicle";
     }
+
+    @RequestMapping("manageDriver")
+    public String gotoManageDriver(){
+        return "admin/manageDriver";
+    }
 }

@@ -41,7 +41,7 @@
                 DATE_FORMAT(received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
         FROM hermes_waybill
     </select>
-    <delete id="deleteWayBill" parameterType="int">
+    <delete id="deleteWayBill" parameterType="String">
         DELETE FROM hermes_waybill WHERE id=#{id}
     </delete>
 
@@ -76,7 +76,7 @@
               0
             )
     </insert>
-    <delete id="deleteDispatchInfo" parameterType="int">
+    <delete id="deleteDispatchInfo" parameterType="String">
         DELETE FROM hermes_dispatch WHERE id=#{id}
     </delete>
     <insert id="addDriver" parameterType="org.hermes.admin.bean.Driver" useGeneratedKeys="true" keyProperty="id">
@@ -117,7 +117,7 @@
             remark
         FROM hermes_driver
     </select>
-    <delete id="deleteDriver" parameterType="int">
+    <delete id="deleteDriver" parameterType="String">
         DELETE FROM hermes_driver WHERE id=#{id}
     </delete>
     <update id="updateDriver" parameterType="org.hermes.admin.bean.Driver">

@@ -33,7 +33,8 @@
                 <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-home"></span></a>
             </div>
             <div class="collapse navbar-collapse" id="mainnav-collapse">
-                <div class="hidden-xs hidden-sm" style="line-height:20px; padding-top:5px; float:left"><a href="#">Home</a></div>
+                <div class="hidden-xs hidden-sm" style="line-height:20px; padding-top:5px; float:left"><a
+                        href="#">Home</a></div>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
@@ -65,12 +66,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12">
-            <textarea class="form-control" rows="3" placeholder="请输入单号"></textarea>
+            <textarea class="form-control" rows="3" placeholder="请输入单号:"></textarea>
             <br>
             <a role="button" class="btn btn-block btn-default btn-xs" href="#">confirm</a>
         </div>
         <div class="col-md-9 col-sm-8 col-xs-12">
-            <img src="resources/modules/index/img/hermes_logo.png" alt="Apache Logo" style="max-width: 100%;float: right;">
+            <img src="resources/modules/index/img/hermes_logo.png" alt="Apache Logo"
+                 style="max-width: 100%;float: right;">
         </div>
     </div>
 </div>
@@ -112,13 +114,16 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Hermes Logistics Company</h2>
+
             <p>
                 在未来，公司将继续致力于民族品牌的建设和发展，继续秉承“用心成就你我”的服务宗旨，加大投入、规范管理，吸纳人才，为社会提供更加优质、安全、便捷的快递服务，不断推动Hermes快递稳步发展，提升企业品牌价值，创造民族快递的奇迹
                 <a href="#">烟花三月下扬州</a>
             </p>
+
             <div class="container">
                 <div class="row">
                     <h3>Featured Project<span class="visible-md-inline visible-lg-inline">s</span></h3>
+
                     <div class="col-md-3 col-sm-12">
                         <!-- tabs left -->
                         <div class="tabbable tabs-left visible-md-inline visible-lg-inline">
@@ -150,6 +155,7 @@
                                                 仓配一体化
                                             </a>
                                         </h4>
+
                                         <p>
                                             致力成为专业的第三方仓储物流供应链服务商，专注为电子商务行业提供仓储、精细加工及配送管理一站式服务
                                         </p>
@@ -162,6 +168,7 @@
                                 <div class="row">
                                     <div class="col-sm-10">
                                         <h4 class="no-btm-margin"><a href="#">代收货款</a></h4>
+
                                         <p>
                                             Hermes代收货款有效的将物流、资金流、信息流集于一体，让更多商户在享受高效、安全、遍布全国的Hermes网络覆盖的同时，享受以最快的速度回笼资金所带来的资金效率收益。
                                         </p>
@@ -174,6 +181,7 @@
                                 <div class="row">
                                     <div class="col-sm-10">
                                         <h4 class="no-btm-margin"><a href="#">Hermes易物流</a></h4>
+
                                         <p>
                                             Hermes易物流是专注于电商企业提供供应链一体化服务的公司；以科技和人才为推动力，致力于打造成中国仓配一体化的标杆性企业
                                         </p>
@@ -198,6 +206,7 @@
     </div>
 
     <br>
+
     <div class="container">
         <div class="row">
             <div class="col-md-8">
