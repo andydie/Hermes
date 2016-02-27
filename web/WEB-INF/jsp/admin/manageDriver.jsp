@@ -153,5 +153,62 @@
         </div>
     </div>
 </div>
+<div class="update-driver-modal modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加Vehicle</h4>
+            </div>
+            <div class="modal-body row">
+                <input type="text" class="hidden id">
+                <div class="col-xs-12">
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">姓名</span>
+                        <input type="text" class="form-control name" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">性别</span>
+                        <input type="text" class="form-control sex" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">驾照类型</span>
+                        <input type="text" class="form-control driverLicenceType" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">驾照号</span>
+                        <input type="tel" class="form-control driverLicenceNumber" >
+                    </div>
+
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">驾龄</span>
+                        <input type="text" class="form-control driverYears" >
+                    </div>
+
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">身份证号</span>
+                        <input type="text" class="form-control idNumber" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">联系电话</span>
+                        <input type="text" class="form-control tel" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">联系地址</span>
+                        <input type="text" class="form-control address" >
+                    </div>
+                    <div class="input-group form-group">
+                        <span class="input-group-addon">备注</span>
+                        <input type="text" class="form-control remark" >
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary modal-confirm">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

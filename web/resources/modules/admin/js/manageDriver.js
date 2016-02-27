@@ -20,18 +20,6 @@ require(['jquery',
         $('.modal-close').click(function(){
             $('.vehicle-modal').modal('hide');
         });
-        $('#vehicleTable tbody').on('click','td.details-control',function(){
-            var tr=$(this).parents('tr');
-            var row=table.api().row(tr);
-            if ( row.child.isShown() ) {
-                row.child.hide();
-                tr.removeClass('shown');
-            }
-            else {
-                row.child(detailsFormat(row.data()) ).show();
-                tr.addClass('shown');
-            }
-        });
         $('#addDriver').click(function(){
             $('.add-driver-modal').modal();
         });
@@ -60,7 +48,43 @@ require(['jquery',
                 data.id=res.msg;
                 driverData.push(data);
                 updateTable();
+                $('.add-driver-modal input').val('');
                 $('.add-driver-modal').modal('hide');
+            });
+        });
+        $('.update-driver-modal .modal-confirm').click(function(){
+            var name=$('.update-driver-modal .name').val(),
+                sex=$('.update-driver-modal .sex').val(),
+                driverLicenceType=$('.update-driver-modal .driverLicenceType').val(),
+                driverLicenceNumber=$('.update-driver-modal .driverLicenceNumber').val(),
+                driverYears=$('.update-driver-modal .driverYears').val(),
+                idNumber=$('.update-driver-modal .idNumber').val(),
+                tel=$('.update-driver-modal .tel').val(),
+                address=$('.update-driver-modal .address').val(),
+                remark=$('.update-driver-modal .remark').val(),
+                id=$('.update-driver-modal .id').val();
+            var data={
+                id:id,
+                name:name,
+                sex:sex,
+                driverLicenceType:driverLicenceType,
+                driverLicenceNumber:driverLicenceNumber,
+                driverYears:driverYears,
+                idNumber:idNumber,
+                tel:tel,
+                address:address,
+                remark:remark
+            }
+            $.sendj('admin/ajax/updateDriver',data,function(res){
+                console.log(res);
+                driverData.remove(
+                    _.find(driverData,function(driver){
+                        return data.id==driver.id;
+                    })
+                );
+                driverData.push(data);
+                updateTable();
+                $('.update-driver-modal').modal('hide');
             });
         });
     }
@@ -149,11 +173,33 @@ function drawTable(data){
                     });
                 }
                 if($(this).hasClass('update')){
-
+                        $('.update-driver-modal .id').val(rowData.id);
+                        $('.update-driver-modal .name').val(rowData.name);
+                        $('.update-driver-modal .sex').val(rowData.sex);
+                        $('.update-driver-modal .driverLicenceType').val(rowData.driverLicenceType);
+                        $('.update-driver-modal .driverLicenceNumber').val(rowData.driverLicenceNumber);
+                        $('.update-driver-modal .driverYears').val(rowData.driverYears);
+                        $('.update-driver-modal .idNumber').val(rowData.idNumber);
+                        $('.update-driver-modal .tel').val(rowData.tel);
+                        $('.update-driver-modal .address').val(rowData.address);
+                        $('.update-driver-modal .remark').val(rowData.remark);
+                    $('.update-driver-modal').modal();
                 }
             });
         },
         "bDestroy":true
+    });
+    $('#vehicleTable tbody').on('click','td.details-control',function(){
+        var tr=$(this).parents('tr');
+        var row=table.api().row(tr);
+        if ( row.child.isShown() ) {
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            row.child(detailsFormat(row.data()) ).show();
+            tr.addClass('shown');
+        }
     });
 }
 function detailsFormat ( d ) {
