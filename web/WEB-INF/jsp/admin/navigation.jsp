@@ -102,13 +102,13 @@
                     <a href="admin/manageDriver"><i class="fa fa-sitemap fa-fw"></i> 驾驶员管理</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-files-o fa-fw"></i>调度管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="blank.html">Blank Page</a>
+                            <a href="admin/manageDispatch">调度列表</a>
                         </li>
                         <li>
-                            <a href="login/login">Login Page</a>
+                            <a href="login/login">新增调度信息</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

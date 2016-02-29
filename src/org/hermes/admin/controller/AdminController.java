@@ -105,11 +105,6 @@ public class AdminController {
         return "admin/addWayBill";
     }
 
-    @RequestMapping("createdispatch")
-    public String gotoCreateDispatch(){
-        return "admin/createDispatch";
-    }
-
     @RequestMapping("manageVehicle")
     public String gotoManageVehicle(){
         return "admin/manageVehicle";
@@ -118,5 +113,10 @@ public class AdminController {
     @RequestMapping("manageDriver")
     public String gotoManageDriver(){
         return "admin/manageDriver";
+    }
+
+    @RequestMapping("manageDispatch")
+    public String gotoManageDispatch(){
+        return "admin/manageDispatch";
     }
 }
