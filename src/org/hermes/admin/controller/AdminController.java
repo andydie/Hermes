@@ -119,4 +119,9 @@ public class AdminController {
     public String gotoManageDispatch(){
         return "admin/manageDispatch";
     }
+
+    @RequestMapping("addDispatch")
+    public String gotoAddDispatch(){
+        return "admin/addDispatch";
+    }
 }
