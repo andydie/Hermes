@@ -30,6 +30,6 @@ public class LoginController {
     @ResponseBody
     @RequestMapping("checkLogin")
     public Result checkLogin(@RequestBody LoginInfo loginInfo,HttpSession session){
-        return loginService.checkLogin(loginInfo.getUsername(), loginInfo.getPassword(), session);
+        return loginService.checkLogin(loginInfo, session);
     }
 }
