@@ -1,0 +1,176 @@
+-- [addWayBill]
+INSERT INTO hermes_waybill(
+        item_name,
+        origin_place,
+        destination,
+        weight,
+        expense,
+        state,
+        create_time,
+        sender,
+        receiver
+)
+VALUE (
+        #itemName#,
+        #originPlace#,
+        #destination#,
+        #weight#,
+        #expense#,
+        0,
+        now(),
+        #sender#,
+        #receiver#
+)
+
+--[queryWayBill]
+SELECT
+        id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
+FROM hermes_waybill
+
+--[deleteWayBill]
+        DELETE FROM hermes_waybill WHERE id=#1#
+
+--[queryDispatchInfo]
+SELECT
+      id,
+      vehicle_id as vehicleId,
+      driver_id as driverId,
+      origin_place as originPlace,
+      destination,
+      DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+      DATE_FORMAT(arrive_time,'%Y-%m-%d %H:%i:%s') as arriveTime,
+      state
+FROM hermes_dispatch
+    
+--[addDispatchInfo]
+INSERT INTO hermes_dispatch(
+  vehicle_id,
+  driver_id,
+  origin_place,
+  destination,
+  create_time,
+  state
+)
+VALUES (
+  #vehicleId#,
+  #dirver_id#,
+  #originPlace#,
+  #destination#,
+  now(),
+  0
+)
+    
+--[deleteDispatchInfo]
+        DELETE FROM hermes_dispatch WHERE id=#id#
+    
+--[addDriver]
+  INSERT INTO hermes_driver(
+    name,
+    sex,
+    driving_licence_type,
+    driving_licence_number,
+    driving_years,
+    id_number,
+    tel,
+    address,
+    remark
+  )
+  VALUES (
+    #name#,
+    #sex#,
+    #driverLicenceType#,
+    #driverLicenceNumber#,
+    #driverYears#,
+    #idNumber#,
+    #tel#,
+    #address#,
+    #remark#
+  )
+    
+--[queryDriver]
+SELECT
+    id,
+    name,
+    sex,
+    driving_licence_type as driverLicenceType,
+    driving_licence_number as driverLicenceNumber,
+    driving_years as driverYears,
+    id_number idNumber,
+    tel,
+    address,
+    remark
+FROM hermes_driver
+    
+--[deleteDriver]
+DELETE FROM hermes_driver WHERE id=#id#
+    
+--[updateDriver]
+UPDATE hermes_driver SET
+    name=#name#,
+    sex=#sex#,
+    driving_licence_type=#driverLicenceType#,
+    driving_licence_number=#driverLicenceNumber#,
+    driving_years=#driverYears#,
+    id_number=#idNumber#,
+    tel=#tel#,
+    address=#address#,
+    remark=#remark#
+WHERE id=#id#
+    
+
+--[addVehicleInfo]
+INSERT INTO hermes_vehicle(
+  plate_number,
+  vehicle_type,
+  owner_name,
+  owner_tel,
+  owner_id_number,
+  owner_address,
+  remark
+)
+VALUES (
+    #plateNumber#,
+    #plateNumber#,
+    #ownerName#,
+    #ownerTel#,
+    #ownerIdNumber#,
+    #ownerAddress#,
+    #remark#
+)
+    
+--[queryVehicle]
+SELECT
+    id,
+    plate_number as plateNumber,
+    vehicle_type as vehicleType,
+    owner_name as ownerName,
+    owner_tel as ownerTel,
+    owner_id_number as ownerIdNumber,
+    owner_address as ownerAddress,
+    remark
+FROM hermes_vehicle
+    
+--[deleteVehicleInfo]
+DELETE FROM hermes_vehicle WHERE id=#id#
+    
+--[updateVehicleInfo]
+UPDATE hermes_vehicle SET
+  plate_number= #plateNumber#,
+  vehicle_type= #vehicleType#,
+  owner_name= #ownerName#,
+  owner_tel= #ownerTel#,
+  owner_id_number=#ownerIdNumber#,
+  owner_address=#ownerAddress#,
+  remark=#remark#
+WHERE id=#id#
+    

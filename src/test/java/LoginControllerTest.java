@@ -11,10 +11,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by Cabeza on 2016/4/15.
  */
 public class LoginControllerTest {
-
+    Logger log= LoggerFactory.getLogger(LoginController.class);
     @Test
     public void testCheckLogin(){
-        Logger log= LoggerFactory.getLogger(LoginController.class);
         String conf= "applicationContext.xml";
         ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
         LoginController loginController=ac.getBean("loginController", LoginController.class);

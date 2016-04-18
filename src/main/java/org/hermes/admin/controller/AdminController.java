@@ -28,7 +28,7 @@ public class AdminController {
 
     @RequestMapping("ajax/addWayBill")
     @ResponseBody
-    public Result add1WayBill(@RequestBody WayBill wb){
+    public Result addWayBill(@RequestBody WayBill wb){
         return adminService.addWayBill(wb);
     }
     @ResponseBody

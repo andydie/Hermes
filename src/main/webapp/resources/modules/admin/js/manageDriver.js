@@ -1,9 +1,6 @@
 /**
  * Created by admin on 2016/2/26.
  */
-/**
- * Created by admin on 2016/2/21.
- */
 var driverData;
 var table;
 require(['jquery',

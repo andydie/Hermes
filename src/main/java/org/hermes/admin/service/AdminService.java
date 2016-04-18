@@ -1,16 +1,17 @@
 package org.hermes.admin.service;
 
-import com.sun.deploy.resources.Deployment_it;
 import org.hermes.admin.bean.DispatchInfo;
 import org.hermes.admin.bean.Driver;
 import org.hermes.admin.bean.Vehicle;
 import org.hermes.admin.bean.WayBill;
 import org.hermes.admin.dao.AdminDao;
 import org.hermes.common.bean.Result;
+import org.n3r.eql.Eql;
+import org.n3r.eql.EqlPage;
+import org.n3r.eql.pojo.Pql;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.RelationSupport;
 import java.util.List;
 
 /**
@@ -21,16 +22,20 @@ public class AdminService {
     @Autowired
     AdminDao adminDao;
     public Result addWayBill(WayBill wb){
-        adminDao.addWayBill(wb);
-        return Result.build("1",wb.getId(),"成功");
+        int result=new Eql().insert("addWayBill").params(wb).execute();
+        if(result<1)
+            return Result.build("0","插入失败");
+        return Result.build("2","插入成功");
     }
     public List<WayBill> queryWayBill(){
-        return adminDao.queryWayBill();
+        return new Eql().returnType(WayBill.class).execute();
     }
 
     public Result deleteWayBill(String id){
-        adminDao.deleteWayBill(id);
-        return Result.build("2",id,"del suc");
+        int result=new Eql().delete("deleteWayBill").params(id).execute();
+        if(result==1)
+            return Result.build("2",id,"del suc");
+        return Result.build("0",id,"del error");
     }
 
     public Result addDispatchInfo(DispatchInfo dispatchInfo){
