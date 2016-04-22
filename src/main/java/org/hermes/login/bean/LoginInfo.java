@@ -28,6 +28,9 @@ public class LoginInfo {
         this.password = password;
     }
 
+    public LoginInfo() {
+    }
+
     @Override
     public String toString() {
         return "LoginInfo{" +

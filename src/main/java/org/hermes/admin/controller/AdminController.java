@@ -90,7 +90,7 @@ public class AdminController {
 
     @ResponseBody
     @RequestMapping("ajax/deleteVehicle")
-    public Result deleteVehicleInfo(@RequestBody Map<String,Integer> params){
+    public Result deleteVehicleInfo(@RequestBody Map<String,String> params){
         System.out.println(params);
         return adminService.deleteVehicleInfo(params.get("id"));
     }
@@ -103,6 +103,11 @@ public class AdminController {
     @RequestMapping("addWayBill")
     public String gotoAddWayBill(){
         return "admin/addWayBill";
+    }
+
+    @RequestMapping("manageWayBill")
+    public String gotoManageWayBill(){
+        return "admin/manageWayBill";
     }
 
     @RequestMapping("manageVehicle")

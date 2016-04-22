@@ -108,7 +108,7 @@
                             <a href="admin/manageDispatch">调度列表</a>
                         </li>
                         <li>
-                            <a href="login/login">新增调度信息</a>
+                            <a href="admin/addDispatch">新增调度信息</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

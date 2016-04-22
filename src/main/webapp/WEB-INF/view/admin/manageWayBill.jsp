@@ -35,7 +35,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">管理车辆
+                <h1 class="page-header">管理运单
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -45,7 +45,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <br>
+                        Basic Form Elements
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -56,9 +56,9 @@
                                     <thead>
                                     <tr>
                                         <th>id</th>
-                                        <th>plate number</th>
-                                        <th>vehicle type</th>
-                                        <th>owner name</th>
+                                        <th>item name</th>
+                                        <th>origin place</th>
+                                        <th>destination</th>
                                         <th>owner tel</th>
                                         <th>owner id</th>
                                         <th>owner address</th>

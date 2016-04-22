@@ -44,7 +44,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Basic Form Elements
+                        <br>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -82,12 +82,12 @@
                                 <div class="form-group">
                                     <label>发件人</label>
                                     <input id="sender" class="form-control">
-                                    <p class="help-block">Example block-level help text here.</p>
+                                    <p class="help-block">真实的姓名信息</p>
                                 </div>
                                 <div class="form-group">
                                     <label>收件人</label>
                                     <input id="receiver" class="form-control">
-                                    <p class="help-block">Example block-level help text here.</p>
+                                    <p class="help-block">真实的姓名信息</p>
                                 </div>
                             </div>
                             <!-- /.col-lg-6 (nested) -->

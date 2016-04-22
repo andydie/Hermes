@@ -128,7 +128,7 @@ UPDATE hermes_driver SET
 WHERE id=#id#
     
 
---[addVehicleInfo]
+--[addVehicle]
 INSERT INTO hermes_vehicle(
   plate_number,
   vehicle_type,

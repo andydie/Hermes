@@ -46,4 +46,11 @@ public class AdminControllerTest {
         Result result=adminController.deleteWayBill(Collections.asMap("id","1"));
         log.info("result{}:"+result);
     }
+    @Test
+    public void testQueryVehicle(){
+        String conf="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
+        AdminController adminController=ac.getBean("adminController",AdminController.class);
+        log.info(adminController.queryVehicle().toString());
+    }
 }
