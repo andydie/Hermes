@@ -13,14 +13,6 @@
     <mvc:annotation-driven/>
 	<context:component-scan base-package="org.hermes"/>
 
-<!--	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/admin/**"/>
-			<mvc:exclude-mapping path="/admin/loginCheck.do"/>
-			<mvc:exclude-mapping path="/admin/logout.do"/>
-			<bean class="org.cabeza.interceptor.LoginInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors>-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list >
@@ -28,6 +20,7 @@
             </list>
         </property>
     </bean>
+
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
@@ -37,43 +30,34 @@
         </property>
     </bean>
 
-    <!--<bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="username" value="root"/>
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/test"/>
-        <property name="password" value="hui6516"/>
-        <property name="maxActive" value="5"/>
-        <property name="maxWait" value="5000"/>
-    </bean> -->
-	 <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="username" value="root"/>
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://localhost:3306/hermes"/>
-		<property name="password" value="hui6516"/>
-		<property name="maxActive" value="10"/>
-		<property name="maxWait" value="5000"/>
-	</bean>
-
-
-<!-- 	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dbcp"/>
-	</bean> -->
-
-
-	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dbcp"/>
-		<property name="mapperLocations" value="classpath:org/hermes/**/dao/*.xml"/>
-	</bean>
-
-	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactory" ref="ssf"/>
-		<property name="basePackage" value="org.hermes.*.dao"/>
-	</bean>
-
 	<bean id="viewresolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+
+
+
+
+    <bean id="userRealm" class="org.hermes.shiro.realm.UserRealm">
+        <property name="cachingEnabled" value="false"/>
+    </bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login/login"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /login/** = anon
+                /index=anon
+                /logout = logout
+                /admin/** = authc
+            </value>
+        </property>
+    </bean>
+
 
 	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
