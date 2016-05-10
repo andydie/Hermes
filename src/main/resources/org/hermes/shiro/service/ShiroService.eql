@@ -4,10 +4,15 @@ select r.role_name
   where u.role_id=r.id and u.username=#username#
 
 --[findPermissions]
-select p.permission_name from shiro_user u,shiro_role r,shiro_permission p
-where u.role_id=r.id
-and p.role_id=r.id
-and u.username=#username#
+select p.permission
+    from shiro_user u,
+         shiro_role r,
+         shiro_permission p,
+         shiro_role_permission rp
+    where  u.role_id        =r.id
+    and    r.id             =rp.role_id
+    and    rp.permission_id =p.id
+    and    u.username       =#username#
 
 --[getByUserName]
 select id,username,password from shiro_user where username=#username#

@@ -82,7 +82,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a href="admin/test"><i class="fa fa-table fa-fw"></i> Tables</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit fa-fw"></i> 运单<span class="fa arrow"></span></a>

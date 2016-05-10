@@ -1,0 +1,50 @@
+<template id="my-show">
+    <div class="container-fluid">
+        <div id="scene-list">
+            123
+            <template id="scene-list-sceneView">
+                <div class="scene-panel col-xs-12 scene-panel">
+                    <div class="scene-cover">
+                        <% var defaultImg = resPath + '/admin/statics/img/default-scene.jpg'; %>
+                        <img src="<%= sceneCover ? imgPrefix + sceneCover +'.237x237' : defaultImg %>" width="100%"
+                             height="100%">
+                    </div>
+                    <div class="scene-detail">
+                        <div class="scene-title"><%= sceneName %></div>
+                        <div class="scene-menu">
+                            <span class="pull-left">浏览量：<%=pv%></span>
+                            <i class="iconfont my-show-delete">&#xe60e;</i>
+                            <i class="iconfont my-show-edit">&#xe610;</i>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div id="loading-status" class="row">
+            <template id="scene-list-loading-status">
+                <% if( state == 'loading' ) {%>
+                <div class="page-loading">
+                    <div id="circularG" style="float: left">
+                        <div id="circularG_1" class="circularG"></div>
+                        <div id="circularG_2" class="circularG"></div>
+                        <div id="circularG_3" class="circularG"></div>
+                        <div id="circularG_4" class="circularG"></div>
+                        <div id="circularG_5" class="circularG"></div>
+                        <div id="circularG_6" class="circularG"></div>
+                        <div id="circularG_7" class="circularG"></div>
+                        <div id="circularG_8" class="circularG"></div>
+                    </div>
+                    <div>正在加载</div>
+                </div>
+                <%}else if( state == 'noMore' ){%>
+                <div class="page-no-more" style="margin-top: 20px"><i class="iconfont icon-emotion-font">&#xe612;</i>没有更多了
+                </div>
+                <%}else if( state == 'noThing'){%>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="no-course"><i class="iconfont icon-nobook-font">&#xe60a;</i>您还没有创建过，赶快去创建吧~</div>
+                </div>
+                <%}%>
+            </template>
+        </div>
+    </div>
+</template>

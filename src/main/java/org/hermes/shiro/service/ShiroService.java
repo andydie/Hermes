@@ -1,6 +1,7 @@
 package org.hermes.shiro.service;
 
 import org.hermes.common.bean.Collections;
+import org.hermes.common.bean.Result;
 import org.hermes.shiro.bean.User;
 import org.n3r.eql.Eql;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class ShiroService {
 
     public User getByUserName(String username) {
         return new Eql().selectFirst("getByUserName").params(Collections.asMap("username",username)).returnType(User.class).execute();
+    }
+
+    public Result createUser(User user){
+        return null;
     }
 }
