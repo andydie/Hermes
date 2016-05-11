@@ -51,4 +51,18 @@ public class ShiroService {
             return Result.build("1","修改角色成功");
         return Result.build("0","修改角色失败");
     }
+
+    public Result deleteUser(String userId){
+        int result=new Eql().delete("deleteUser").params(Collections.asMap("userId",userId)).execute();
+        if(result>0)
+            return Result.build("1","删除角色成功");
+        return Result.build("0","删除角色失败");
+    }
+
+    public Result addUser(User user){
+        int result=new Eql().insert("addUser").params(user).execute();
+        if(result>0)
+            return Result.build("1","添加角色成功");
+        return Result.build("0","添加角色失败");
+    }
 }

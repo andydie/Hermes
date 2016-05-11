@@ -6,10 +6,7 @@ import org.hermes.shiro.bean.User;
 import org.hermes.shiro.service.ShiroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,5 +43,16 @@ public class ShiroController {
         return shiroService.getAllRole();
     }
 
+    @ResponseBody
+    @RequestMapping("delete-user/{userId}")
+    public Result deleteUser(@PathVariable String userId){
+        return shiroService.deleteUser(userId);
+    }
+
+    @ResponseBody
+    @RequestMapping("add-user")
+    public Result addUser(@RequestBody User user){
+        return shiroService.addUser(user);
+    }
 
 }

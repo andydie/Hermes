@@ -10,11 +10,11 @@
                         <h4 class="media-heading"><%=username%></h4>
 
                         <div class="role-name"><%=roleDesc%></div>
-                        <span class="label label-info">修改角色</span>
+                        <span class="label label-info change-role">修改角色</span>
                     </div>
                     <div class="media-right">
                         <span class="change-password label label-warning">改密</span>
-                        <span class="label label-danger">删除</span>
+                        <span class="label label-danger delete-user">删除</span>
                     </div>
                 </div>
             </template>
@@ -57,14 +57,14 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">修改角色</h4>
+                                <h4 class="modal-title">修改<%=username%>角色</h4>
                             </div>
                             <div class="modal-body row">
                                 <div class="col-xs-12">
                                     <form role="form">
                                         <div class="form-group">
                                             <label for="name">选择列表</label>
-                                            <select class="form-control cabezahaha">
+                                            <select class="form-control role-option">
                                                 <% for(var i = 0,len = list.length; i < len; i++) {
                                                 var role = list[i];
                                                 if(role.roleId==userRoleId){ %>
