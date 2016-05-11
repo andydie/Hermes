@@ -15,4 +15,36 @@ select p.permission
     and    u.username       =#username#
 
 --[getByUserName]
-select id,username,password from shiro_user where username=#username#
+select u.id as id,
+		u.username as username,
+        u.password as password,
+        u.role_id  as role_id,
+        r.description as role_desc
+	from shiro_user u,shiro_role r
+    where u.username=#username#
+    and u.role_id=r.id
+
+--[getAllUser]
+select u.id as id,
+		u.username as username,
+        u.password as password,
+        u.role_id  as role_id,
+        r.description as role_desc
+	from shiro_user u,shiro_role r
+    where u.role_id=r.id
+
+--[getAllRole]
+select id          as role_id,
+       role_name   as role_name,
+       description as role_desc
+   from shiro_role
+
+--[changePassword]
+update shiro_user
+    set password=#newPassword#
+    where id    =#id#
+
+--[changeRole]
+update shiro_user
+       set role_id=#roleId#
+       where id= #userId#

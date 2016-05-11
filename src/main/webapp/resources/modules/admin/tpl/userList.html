@@ -1,0 +1,93 @@
+<template id="user-list">
+    <div class="col-xs-8">
+        <div id="scene-list">
+            <template id="scene-list-sceneView">
+                <div class="media">
+                    <div class="media-left">
+                        <span class="user-icon glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%=username%></h4>
+
+                        <div class="role-name"><%=roleDesc%></div>
+                        <span class="label label-info">修改角色</span>
+                    </div>
+                    <div class="media-right">
+                        <span class="change-password label label-warning">改密</span>
+                        <span class="label label-danger">删除</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div id="change-password-modal">
+            <template id="change-password">
+                <div class="add-driver-modal modal fade" id="shiro-user-change-password" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">修改<%=username%>密码</h4>
+                            </div>
+                            <div class="modal-body row">
+                                <div class="col-xs-12">
+
+                                    <div class="input-group form-group">
+                                        <span class="input-group-addon">新密码</span>
+                                        <input type="password" class="form-control new-password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary modal-confirm">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <div id="change-role-modal">
+            <template id="change-role">
+                <div class="modal fade" id="shiro-change-role" tabindex="-1" role="dialog"
+                     aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">修改角色</h4>
+                            </div>
+                            <div class="modal-body row">
+                                <div class="col-xs-12">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="name">选择列表</label>
+                                            <select class="form-control cabezahaha">
+                                                <% for(var i = 0,len = list.length; i < len; i++) {
+                                                var role = list[i];
+                                                if(role.roleId==userRoleId){ %>
+                                                <option value="<%=role.roleId%>" selected="selected"><%=role.roleDesc%></option>
+                                                <% } %>
+                                                <%if(role.roleId!=userRoleId) {%>
+                                                <option value="<%=role.roleId%>" ><%=role.roleDesc%></option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary modal-confirm">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+
+    </div>
+</template>

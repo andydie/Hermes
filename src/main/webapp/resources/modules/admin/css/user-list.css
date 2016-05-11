@@ -1,0 +1,24 @@
+#cabeza .media {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#cabeza .media .user-icon {
+  font-size: 40px;
+}
+#cabeza .media .media-right {
+  vertical-align: middle;
+}
+#cabeza .media .media-right span {
+  display: table-cell;
+  margin-right: 5px;
+}
+#cabeza .media span {
+  cursor: pointer;
+}
+#cabeza .media span:hover {
+  opacity: 0.8;
+}
+#cabeza .media .role-name {
+  width: 5em;
+  display: inline-block;
+}

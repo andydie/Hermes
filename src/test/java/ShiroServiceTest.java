@@ -1,3 +1,4 @@
+import org.hermes.common.bean.Collections;
 import org.hermes.shiro.service.ShiroService;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -12,26 +13,36 @@ import java.util.Set;
  */
 public class ShiroServiceTest {
     private static Logger log= LoggerFactory.getLogger(ShiroService.class);
+    String conf= "applicationContext.xml";
+    ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
+    ShiroService shiroService=ac.getBean("shiroService",ShiroService.class);
     @Test
     public void testFindRoles(){
-        String conf= "applicationContext.xml";
-        ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
-        ShiroService shiroService=ac.getBean("shiroService",ShiroService.class);
+
         Set<String> set=shiroService.findRoles("admin");
         log.info(set.toString());
     }
     @Test
     public void testFindPermissions(){
-        String conf= "applicationContext.xml";
-        ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
-        ShiroService shiroService=ac.getBean("shiroService",ShiroService.class);
+
         log.info(shiroService.findPermissions("admin").toString());
     }
     @Test
     public void testFindByUsername(){
-        String conf= "applicationContext.xml";
-        ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
-        ShiroService shiroService=ac.getBean("shiroService",ShiroService.class);
         log.info(shiroService.getByUserName("admin").toString());
+    }
+    @Test
+    public void testGetAllUser(){
+        log.info(shiroService.getAllUser().toString());
+    }
+
+    @Test
+    public void testCollectionUtil(){
+        log.info(Collections.asMap("1",1,"2",2).toString());
+    }
+
+    @Test
+    public void testGetALlRole(){
+        log.info(shiroService.getAllRole().toString());
     }
 }

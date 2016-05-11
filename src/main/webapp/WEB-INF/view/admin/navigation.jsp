@@ -82,7 +82,23 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="admin/test"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i>用户与权限管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">用户管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="admin/security/user/list">用户管理</a>
+                                </li>
+                                <li>
+                                    <a href="admin/addDispatch">新增调度信息</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">权限管理</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit fa-fw"></i> 运单<span class="fa arrow"></span></a>

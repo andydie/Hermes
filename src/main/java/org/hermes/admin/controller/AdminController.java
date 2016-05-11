@@ -130,8 +130,8 @@ public class AdminController {
         return "admin/addDispatch";
     }
 
-    @RequestMapping("test")
-    public String gotoTest(){
-        return "admin/test";
+    @RequestMapping("security/user/list")
+    public String gotoUserList(){
+        return "admin/userList";
     }
 }
