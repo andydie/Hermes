@@ -1,0 +1,30 @@
+.thumbnail h3 {
+  text-align: center;
+}
+.thumbnail .role-icon {
+  text-align: center;
+}
+.thumbnail .role-edit {
+  float: right;
+  font-size: 0.765em;
+}
+.thumbnail .role-edit span {
+  color: #aaa !important;
+}
+.thumbnail .role-edit i {
+  color: #aaa !important;
+}
+.thumbnail .role-delete {
+  cursor: pointer;
+  float: left;
+  font-size: 0.765em;
+}
+.thumbnail .role-delete span {
+  color: #aaa !important;
+}
+.thumbnail .role-delete i {
+  color: #aaa !important;
+}
+.panel .panel-heading .new-role-btn {
+  cursor: pointer;
+}

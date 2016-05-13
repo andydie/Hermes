@@ -5,7 +5,7 @@ require(['jquery',
         'backbone',
         'mn',
         'underscore',
-        'text!modules/admin/tpl/userList.html',
+        'text!modules/shiro/tpl/userList.html',
         'easyui',
         'bootstrap',
         'util',
@@ -13,7 +13,7 @@ require(['jquery',
         'datatables',
         'css!modules/admin/css/font-awesome.min.css',
         'css!modules/admin/css/sb-admin-2.css',
-        'css!modules/admin/css/user-list.css'],
+        'css!modules/shiro/css/user-list.css'],
     function ($, Backbone, Marionette, _, tpl) {
         $('#side-menu').metisMenu();
         initHi($, Backbone, Marionette, _);

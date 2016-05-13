@@ -88,15 +88,15 @@
                             <a href="#">用户管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="admin/security/user/list">用户管理</a>
+                                    <a href="shiro/user/list">用户管理</a>
                                 </li>
                                 <li>
-                                    <a href="admin/addDispatch">新增调度信息</a>
+                                    <a href="shiro/user/add">新增用户</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">权限管理</a>
+                            <a href="shiro/role/list">权限管理</a>
                         </li>
                     </ul>
                 </li>

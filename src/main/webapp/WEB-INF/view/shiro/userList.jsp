@@ -16,7 +16,7 @@
 <head>
     <base href="<%=basePath%>">
     <script src="resources/common/js/require-config.js"></script>
-    <script src="resources/common/js/require.js" data-main="modules/admin/js/userList"></script>
+    <script src="resources/common/js/require.js" data-main="modules/shiro/js/userList"></script>
     <style type="text/css">
         .navbar-top-links li {
             display: inline-block;
@@ -30,7 +30,7 @@
 
     <!-- Navigation -->
 
-    <%@include file="navigation.jsp" %>
+    <%@include file="../admin/navigation.jsp" %>
 
     <div id="page-wrapper">
         <br>

@@ -1,6 +1,7 @@
 package org.hermes.shiro.controller;
 
 import org.hermes.common.bean.Result;
+import org.hermes.shiro.bean.Permission;
 import org.hermes.shiro.bean.Role;
 import org.hermes.shiro.bean.User;
 import org.hermes.shiro.service.ShiroService;
@@ -44,6 +45,12 @@ public class ShiroController {
     }
 
     @ResponseBody
+    @RequestMapping("role/{roleId}")
+    public Role getRoleById(@PathVariable String roleId){
+        return shiroService.getRoleById(roleId);
+    }
+
+    @ResponseBody
     @RequestMapping("delete-user/{userId}")
     public Result deleteUser(@PathVariable String userId){
         return shiroService.deleteUser(userId);
@@ -55,4 +62,52 @@ public class ShiroController {
         return shiroService.addUser(user);
     }
 
+    @ResponseBody
+    @RequestMapping("add-role")
+    public Result addRole(@RequestBody Role role){
+        return shiroService.addRole(role);
+    }
+
+    @ResponseBody
+    @RequestMapping("delete-role/{roleId}")
+    public Result deleteRole(@PathVariable String roleId){
+        return shiroService.deleteRole(roleId);
+    }
+
+    @ResponseBody
+    @RequestMapping("all-permision")
+    public List<Permission> getAllPermission(){
+        return shiroService.getAllPermission();
+    }
+
+    @ResponseBody
+    @RequestMapping("{roleId}/permission")
+    public List<Permission> getPermissionByRoleId(@PathVariable String roleId){
+        return shiroService.getPermissionByRoleId(roleId);
+    }
+    @ResponseBody
+    @RequestMapping("{roleId}/update-permission")
+    public Result updatePermissionByRoleId(@PathVariable String roleId,@RequestParam String permissionStr){
+        return shiroService.updatePermissionByRoleId(roleId,permissionStr);
+    }
+
+    @RequestMapping("user/list")
+    public String gotoUserList(){
+        return "shiro/userList";
+    }
+
+    @RequestMapping("user/add")
+    public String gotoAddUser(){
+        return "shiro/addUser";
+    }
+
+    @RequestMapping("role/list")
+    public String gotoRoleList(){
+        return "shiro/roleList";
+    }
+
+    @RequestMapping("role/edit")
+    public String gotoRoleEdit(){
+        return "shiro/roleEdit";
+    }
 }

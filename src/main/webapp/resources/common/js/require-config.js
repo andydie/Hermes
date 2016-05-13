@@ -98,6 +98,13 @@ Array.prototype.remove = function (obj) {
     }
 };
 var hi = {template: {}};
+hi.getQueryString=function(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)
+        return  decodeURIComponent(r[2]);
+    return null;
+}
 function initHi($, Backbone, Marionette, _) {
     if (hi.app == null) {
         hi.app = new Marionette.Application();

@@ -16,12 +16,21 @@
 <head>
     <base href="<%=basePath%>">
     <script src="resources/common/js/require-config.js"></script>
-    <script src="resources/common/js/require.js" data-main="modules/admin/js/addUser"></script>
+    <script src="resources/common/js/require.js" data-main="modules/shiro/js/addUser"></script>
     <style type="text/css">
         .navbar-top-links li {
             display: inline-block;
         }
     </style>
+    <script>
+        hi.data=1;
+        function addCookie(a,b,c){
+
+            console.log(a,b,c);
+            alert('11111');
+            hi.data=2;
+        }
+    </script>
     <title></title>
 </head>
 <body>
@@ -30,7 +39,7 @@
 
     <!-- Navigation -->
 
-    <%@include file="navigation.jsp" %>
+    <%@include file="../admin/navigation.jsp" %>
 
     <div id="page-wrapper">
         <br>
@@ -66,6 +75,7 @@
                                     <div class="alert alert-danger hide" role="alert">
                                         创建失败,未知原因!
                                     </div>
+                                    <a href="admin/addWayBill"><img src="images/ZY-A.png" name="0" style="display:block" onclick="addCookie('carname','0',1);">11</a>
                                 </form>
                             </div>
                             <div class="col-xs-4 col-xs-offset-4" style="text-align: center;">
