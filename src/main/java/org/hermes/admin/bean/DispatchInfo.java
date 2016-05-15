@@ -76,4 +76,18 @@ public class DispatchInfo {
     public void setState(String state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "DispatchInfo{" +
+                "id='" + id + '\'' +
+                ", vehicleId='" + vehicleId + '\'' +
+                ", driverId='" + driverId + '\'' +
+                ", originPlace='" + originPlace + '\'' +
+                ", destination='" + destination + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", arriveTime='" + arriveTime + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }

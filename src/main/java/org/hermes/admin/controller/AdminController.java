@@ -8,10 +8,7 @@ import org.hermes.admin.service.AdminService;
 import org.hermes.common.bean.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +44,12 @@ public class AdminController {
     @RequestMapping("ajax/addDispatchInfo")
     public Result addDispatchInfo(@RequestBody DispatchInfo dispatchInfo){
         return adminService.addDispatchInfo(dispatchInfo);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/getDispatchById/{id}")
+    public DispatchInfo getDispatchById(@PathVariable String id){
+        return adminService.getDispatchById(id);
     }
     @RequestMapping("ajax/queryDispatchInfo")
     @ResponseBody
@@ -130,4 +133,13 @@ public class AdminController {
         return "admin/addDispatch";
     }
 
+    @RequestMapping("dispatch/list")
+    public String gotoDispatchList(){
+        return "admin/dispatchList";
+    }
+
+    @RequestMapping("dispatch/detail/{dispatchId}")
+    public String gotoDispatchDetail(){
+        return "admin/dispatchDetail";
+    }
 }

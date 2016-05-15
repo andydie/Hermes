@@ -76,4 +76,19 @@ public class Vehicle {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+    @Override
+    public String
+    toString() {
+        return "Vehicle{" +
+                "id='" + id + '\'' +
+                ", plateNumber='" + plateNumber + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", ownerName='" + ownerName + '\'' +
+                ", ownerTel='" + ownerTel + '\'' +
+                ", ownerIdNumber='" + ownerIdNumber + '\'' +
+                ", ownerAddress='" + ownerAddress + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

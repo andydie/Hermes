@@ -173,4 +173,44 @@ UPDATE hermes_vehicle SET
   owner_address=#ownerAddress#,
   remark=#remark#
 WHERE id=#id#
-    
+
+--[getDispatchById]
+SELECT
+      id,
+      vehicle_id as vehicleId,
+      driver_id as driverId,
+      origin_place as originPlace,
+      destination,
+      DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+      DATE_FORMAT(arrive_time,'%Y-%m-%d %H:%i:%s') as arriveTime,
+      state
+    FROM hermes_dispatch
+    WHERE id=#id#
+
+--[queryDriverById]
+SELECT
+    id,
+    name,
+    sex,
+    driving_licence_type as driverLicenceType,
+    driving_licence_number as driverLicenceNumber,
+    driving_years as driverYears,
+    id_number idNumber,
+    tel,
+    address,
+    remark
+FROM hermes_driver
+WHERE id=#id#
+
+--[queryVehicleById]
+SELECT
+    id,
+    plate_number as plateNumber,
+    vehicle_type as vehicleType,
+    owner_name as ownerName,
+    owner_tel as ownerTel,
+    owner_id_number as ownerIdNumber,
+    owner_address as ownerAddress,
+    remark
+FROM hermes_vehicle
+WHERE id=#id#

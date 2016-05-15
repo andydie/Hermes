@@ -4,6 +4,7 @@ import org.hermes.admin.bean.DispatchInfo;
 import org.hermes.admin.bean.Driver;
 import org.hermes.admin.bean.Vehicle;
 import org.hermes.admin.bean.WayBill;
+import org.hermes.common.bean.Collections;
 import org.hermes.common.bean.Result;
 import org.n3r.eql.Eql;
 import org.springframework.stereotype.Service;
@@ -60,6 +61,11 @@ public class AdminService {
         return new Eql().returnType(Driver.class).execute();
     }
 
+
+    public Driver queryDriverById(String id){
+        return new Eql().selectFirst("queryDriverById").params(Collections.asMap("id",id)).returnType(Driver.class).execute();
+    }
+
     public Result deleteDriver(String id){
         int result=new Eql().delete("deleteDriver").params(id).execute();
         if(result==1)
@@ -83,6 +89,10 @@ public class AdminService {
         return new Eql().returnType(Vehicle.class).execute();
     }
 
+    public Vehicle queryVehicleById(String id){
+        return new Eql().selectFirst("queryVehicleById").params(Collections.asMap("id",id)).returnType(Vehicle.class).execute();
+    }
+
     public Result deleteVehicleInfo(String id){
         int result=new Eql().delete("deleteVehicleInfo").params(id).execute();
         if(result==1)
@@ -94,5 +104,9 @@ public class AdminService {
         if(result<1)
             return Result.build("0","更新失败");
         return Result.build("2","更新成功");
+    }
+
+    public DispatchInfo getDispatchById(String id){
+        return new Eql().selectFirst("getDispatchById").params(Collections.asMap("id",id)).returnType(DispatchInfo.class).execute();
     }
 }
