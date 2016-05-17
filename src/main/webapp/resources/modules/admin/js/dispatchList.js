@@ -54,7 +54,9 @@ function dispatchListFormat(dispatch){
     '</div>'+
     '</div>'+
     '</div>'+
-    '<a href="#">'+
+    '<a href="' +
+        'admin/dispatch/detail?dispatchId=' +dispatch.id+
+        '">'+
     '<div class="panel-footer">'+
     '<span class="pull-left">'+
         'View Details'+

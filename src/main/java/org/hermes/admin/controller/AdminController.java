@@ -35,6 +35,24 @@ public class AdminController {
     }
 
     @ResponseBody
+    @RequestMapping("ajax/getWayBill/{id}")
+    public WayBill getWayBillById(@PathVariable String id){
+        return adminService.getWayBillById(id);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/getNotOnWayWayBill")
+    public List<WayBill> getNotOnWayWayBill(){
+        return adminService.getNotOnWayWayBill();
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/getAlreadyOnWayWayBill/{dispatchId}")
+    public List<WayBill> getAlreadyOnWayWayBill(@PathVariable String dispatchId){
+        return adminService.getAlreadyOnWayWayBill(dispatchId);
+    }
+
+    @ResponseBody
     @RequestMapping("ajax/deleteWayBill")
     public Result deleteWayBill(@RequestBody Map<String,String> map){
        return adminService.deleteWayBill(map.get("id"));
@@ -69,6 +87,12 @@ public class AdminController {
     }
 
     @ResponseBody
+    @RequestMapping("ajax/queryDriverById/{id}")
+    public Driver queryDriverById(@PathVariable String id){
+        return adminService.queryDriverById(id);
+    }
+
+    @ResponseBody
     @RequestMapping("ajax/deleteDriver")
     public Result deleteDriver(@RequestBody Map<String,String> map){
         return adminService.deleteDriver(map.get("id"));
@@ -92,6 +116,12 @@ public class AdminController {
     }
 
     @ResponseBody
+    @RequestMapping("ajax/queryVehicleById/{id}")
+    public Vehicle queryVehicleById(@PathVariable String id){
+        return adminService.queryVehicleById(id);
+    }
+
+    @ResponseBody
     @RequestMapping("ajax/deleteVehicle")
     public Result deleteVehicleInfo(@RequestBody Map<String,String> params){
         System.out.println(params);
@@ -103,6 +133,25 @@ public class AdminController {
         return adminService.updateVehicleInfo(vehicle);
     }
 
+
+    @ResponseBody
+    @RequestMapping("ajax/addToJourneyRecord/{dispatchId}")
+    public Result addToJourneyRecord(@PathVariable String dispatchId,@RequestParam String str){
+        return adminService.addToJourneyRecord(str,dispatchId);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/deleteWayBillsFromJourneyRecord/{dispatchId}")
+    public Result deleteWayBillsFromJourneyRecord(@PathVariable String dispatchId,@RequestParam String str){
+        return adminService.deleteWayBillsFromJourneyRecord(str,dispatchId);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/getJourneyRecordByWayBillId/{wayBillId}")
+    public List<DispatchInfo> getJourneyRecordByWayBillId(@PathVariable String wayBillId){
+        return adminService.getJourneyRecordByWayBillId(wayBillId);
+    }
+
     @RequestMapping("addWayBill")
     public String gotoAddWayBill(){
         return "admin/addWayBill";
@@ -111,6 +160,11 @@ public class AdminController {
     @RequestMapping("manageWayBill")
     public String gotoManageWayBill(){
         return "admin/manageWayBill";
+    }
+
+    @RequestMapping("wayBillList")
+    public String gotoWayBillList(){
+        return "admin/wayBillList";
     }
 
     @RequestMapping("manageVehicle")
@@ -138,8 +192,14 @@ public class AdminController {
         return "admin/dispatchList";
     }
 
-    @RequestMapping("dispatch/detail/{dispatchId}")
+    @RequestMapping("dispatch/detail")
     public String gotoDispatchDetail(){
         return "admin/dispatchDetail";
     }
+
+    @RequestMapping("waybill/detail")
+    public String gotoWayBillDetail(){
+        return "admin/waybillDetail";
+    }
+
 }

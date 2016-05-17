@@ -9,6 +9,9 @@ public class User {
     String password;
     String roleId;
     String roleDesc;
+    String staffName;
+    String staffTel;
+    String type;
 
     public String getId() {
         return id;
@@ -50,6 +53,31 @@ public class User {
         this.roleDesc = roleDesc;
     }
 
+    public String getStaffName() {
+        return staffName;
+    }
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
+
+    public String getStaffTel() {
+        return staffTel;
+    }
+
+    public void setStaffTel(String staffTel) {
+        this.staffTel = staffTel;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -58,6 +86,9 @@ public class User {
                 ", password='" + password + '\'' +
                 ", roleId='" + roleId + '\'' +
                 ", roleDesc='" + roleDesc + '\'' +
+                ", staffName='" + staffName + '\'' +
+                ", staffTel='" + staffTel + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

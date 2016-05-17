@@ -16,7 +16,7 @@
 <head>
     <base href="<%=basePath%>">
     <script src="resources/common/js/require-config.js"></script>
-    <script src="resources/common/js/require.js" data-main="modules/admin/js/manageWayBill"></script>
+    <script src="resources/common/js/require.js" data-main="modules/admin/js/wayBillList"></script>
     <style type="text/css">
         .navbar-top-links li {
             display: inline-block;
@@ -30,58 +30,27 @@
 
     <!-- Navigation -->
 
-    <%@include file="navigation.jsp"%>
+    <%@include file="navigation.jsp" %>
 
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">管理运单
-                </h1>
+            <div class="col-xs-12">
+                <br>
             </div>
-            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Basic Form Elements
                     </div>
                     <div class="panel-body">
-                        <div class="row">
+                        <div class="row container-fluid waybill-list">
 
-                            <!-- /.col-lg-6 (nested) -->
-                            <div class="col-xs-12 table-responsive">
-                                <table id="wayBillTable" class="table table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>id</th>
-                                        <th>item name</th>
-                                        <th>origin place</th>
-                                        <th>destination</th>
-                                        <th>weight</th>
-                                        <th>sender</th>
-                                        <th>receiver</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-                        </div>
-                        <!-- /.row (nested) -->
-                        <div class="col-xs-4 col-xs-offset-4" style="text-align: center;">
-                            <button id="addVehicle" type="button" class="btn btn-primary">ADD</button>
                         </div>
                     </div>
-                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel -->
             </div>
-            <!-- /.col-lg-12 -->
         </div>
 
 
@@ -92,40 +61,41 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">添加Vehicle</h4>
                 </div>
                 <div class="modal-body row">
                     <div class="col-xs-12">
                         <div class="input-group form-group">
                             <span class="input-group-addon">车辆牌号</span>
-                            <input type="text" class="form-control plateNumber" >
+                            <input type="text" class="form-control plateNumber">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车辆类型</span>
-                            <input type="text" class="form-control vehicleType" >
+                            <input type="text" class="form-control vehicleType">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主姓名</span>
-                            <input type="text" class="form-control ownerName" >
+                            <input type="text" class="form-control ownerName">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主电话</span>
-                            <input type="tel" class="form-control ownerTel" >
+                            <input type="tel" class="form-control ownerTel">
                         </div>
 
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主身份证</span>
-                            <input type="text" class="form-control ownerIdNumber" >
+                            <input type="text" class="form-control ownerIdNumber">
                         </div>
 
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主住址</span>
-                            <input type="text" class="form-control ownerAddress" >
+                            <input type="text" class="form-control ownerAddress">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">备注</span>
-                            <input type="text" class="form-control remark" >
+                            <input type="text" class="form-control remark">
                         </div>
                     </div>
                 </div>
@@ -137,45 +107,48 @@
         </div>
     </div>
 
-    <div class="update-vehicle-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="update-vehicle-modal modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" class="myModalLabel">修改</h4>
                 </div>
                 <div class="modal-body row">
                     <div class="col-xs-12">
                         <input type="text" class="hidden id">
+
                         <div class="input-group form-group">
                             <span class="input-group-addon">车辆牌号</span>
-                            <input type="text" class="form-control plateNumber" >
+                            <input type="text" class="form-control plateNumber">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车辆类型</span>
-                            <input type="text" class="form-control vehicleType" >
+                            <input type="text" class="form-control vehicleType">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主姓名</span>
-                            <input type="text" class="form-control ownerName" >
+                            <input type="text" class="form-control ownerName">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主电话</span>
-                            <input type="tel" class="form-control ownerTel" >
+                            <input type="tel" class="form-control ownerTel">
                         </div>
 
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主身份证</span>
-                            <input type="text" class="form-control ownerIdNumber" >
+                            <input type="text" class="form-control ownerIdNumber">
                         </div>
 
                         <div class="input-group form-group">
                             <span class="input-group-addon">车主住址</span>
-                            <input type="text" class="form-control ownerAddress" >
+                            <input type="text" class="form-control ownerAddress">
                         </div>
                         <div class="input-group form-group">
                             <span class="input-group-addon">备注</span>
-                            <input type="text" class="form-control remark" >
+                            <input type="text" class="form-control remark">
                         </div>
                     </div>
                 </div>
@@ -188,7 +161,6 @@
     </div>
 </div>
 <!-- /#wrapper -->
-
 
 
 </body>

@@ -1,0 +1,73 @@
+.waybill-item {
+  padding: 45px 45px 30px;
+}
+.waybill-item .waybill-path {
+  font-size: 30px;
+  text-align: center;
+}
+.waybill-item .waybill-name {
+  font-size: 0.95em;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.waybill-item .waybill-weight {
+  font-size: 0.95em;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.waybill-item .waybill-createtime {
+  font-size: 0.95em;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+.waybill-item .line {
+  width: 50%;
+  height: 0;
+  border-bottom: 1px solid #a4e7ad;
+  margin-left: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-transform: translate3d(-50%, 0, 0);
+     -moz-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
+}
+.waybill-item .waybill-btn {
+  text-align: center;
+}
+.waybill-item .btn-primary {
+  color: #fff;
+  -webkit-border-radius: 17px;
+     -moz-border-radius: 17px;
+          border-radius: 17px;
+}
+.waybill-item .btn-primary:hover,
+.waybill-item .btn-primary:focus,
+.waybill-item .btn-primary:active {
+  outline: none!important;
+}
+.waybill-item .waybill-delete {
+  cursor: pointer;
+  float: left;
+  margin-left: 40px;
+  font-size: 0.765em;
+}
+.waybill-item .waybill-delete span {
+  color: #aaa !important;
+}
+.waybill-item .waybill-delete i {
+  color: #aaa !important;
+}
+.waybill-item .waybill-detail {
+  float: right;
+  margin-right: 40px;
+  font-size: 0.765em;
+}
+.waybill-item .waybill-detail span {
+  color: #aaa !important;
+}
+.waybill-item .waybill-detail i {
+  color: #aaa !important;
+}

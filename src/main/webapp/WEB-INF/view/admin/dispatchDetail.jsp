@@ -42,12 +42,55 @@
                         <br>
                     </div>
                     <div class="panel-body">
-                        <div class="row" id="dispatch-list">
+                        <div class="row container-fluid" id="dispatch-list">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <table id="pg" class="easyui-propertygrid" style="width:300px"
+                                           data-options="showGroup:true,scrollbarSize:0">
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <table id="dg" class="easyui-datagrid" title="选择要运输的货物"
+                                           style="width:450px;height:250px"
+                                           data-options="singleSelect:false">
+                                        <thead>
+                                        <tr>
+                                            <th data-options="field:'ck',checkbox:true"></th>
+                                            <th data-options="field:'id',width:80">id</th>
+                                            <th data-options="field:'itemName',width:100">名称</th>
+                                            <th data-options="field:'originPlace',width:80,align:'right'">始发地</th>
+                                            <th data-options="field:'destination',width:80,align:'right'">目的地</th>
+                                            <th data-options="field:'weight',width:80">重量</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
 
-                        </div>
-                        <!-- /.row (nested) -->
-                        <div class="col-xs-4 col-xs-offset-4" style="text-align: center;">
-                            <button id="addDriver" type="button" class="btn btn-primary">ADD</button>
+                                    <button class="btn btn-primary" id="add-dispatch">确认</button>
+
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <table id="delete-dg" class="easyui-datagrid" title="选择要删除的货物"
+                                           style="width:450px;height:250px"
+                                           data-options="singleSelect:false">
+                                        <thead>
+                                        <tr>
+                                            <th data-options="field:'ck',checkbox:true"></th>
+                                            <th data-options="field:'id',width:80">id</th>
+                                            <th data-options="field:'itemName',width:100">名称</th>
+                                            <th data-options="field:'originPlace',width:80,align:'right'">始发地</th>
+                                            <th data-options="field:'destination',width:80,align:'right'">目的地</th>
+                                            <th data-options="field:'weight',width:80">重量</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+
+                                    <button class="btn btn-primary" id="delete-dispatch">删除</button>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- /.panel-body -->

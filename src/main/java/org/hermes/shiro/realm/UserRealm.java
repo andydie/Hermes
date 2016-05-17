@@ -1,10 +1,13 @@
 package org.hermes.shiro.realm;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.hermes.shiro.bean.User;
 import org.hermes.shiro.service.ShiroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +36,9 @@ public class UserRealm extends AuthorizingRealm{
             throw new UnknownAccountException();
         }
         SimpleAuthenticationInfo simpleAuthenticationInfo=new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(),getName());
-
+        Subject currentUser = SecurityUtils.getSubject();
+        Session session = currentUser.getSession();
+        session.setAttribute("userName",user.getStaffName());
         return simpleAuthenticationInfo;
     }
 

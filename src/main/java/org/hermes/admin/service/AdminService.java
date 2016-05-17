@@ -26,6 +26,10 @@ public class AdminService {
         return new Eql().returnType(WayBill.class).execute();
     }
 
+    public WayBill getWayBillById(String id){
+        return new Eql().selectFirst("getWayBillById").params(Collections.asMap("id",id)).returnType(WayBill.class).execute();
+    }
+
     public Result deleteWayBill(String id){
         int result=new Eql().delete("deleteWayBill").params(id).execute();
         if(result==1)
@@ -108,5 +112,51 @@ public class AdminService {
 
     public DispatchInfo getDispatchById(String id){
         return new Eql().selectFirst("getDispatchById").params(Collections.asMap("id",id)).returnType(DispatchInfo.class).execute();
+    }
+
+    public List<WayBill> getNotOnWayWayBill(){
+        return new Eql().returnType(WayBill.class).execute();
+    }
+
+    public List<WayBill> getAlreadyOnWayWayBill(String dispatchId){
+        return  new Eql().params(Collections.asMap("dispatchId",dispatchId)).returnType(WayBill.class).execute();
+    }
+
+
+    public Result addToJourneyRecord(String str,String dispatchId){
+        String[] arr=str.split(",");
+        for(int i=0;i<arr.length;i++){
+            createJourneyRecord(arr[i],dispatchId);
+            changeWayBillState(arr[i],"1");
+        }
+        return Result.build("1",str,dispatchId);
+    }
+    public Result deleteWayBillsFromJourneyRecord(String str,String dispatchId){
+        String[] arr=str.split(",");
+        for(int i=0;i<arr.length;i++){
+            deleteJourneyRecord(arr[i], dispatchId);
+            changeWayBillState(arr[i],"0");
+        }
+        return Result.build("1",str,dispatchId);
+    }
+
+    public void createJourneyRecord(String waybillId,String dispatchId){
+        new Eql().params(Collections.asMap("waybillId",waybillId,"dispatchId",dispatchId)).execute();
+    }
+
+    public void deleteJourneyRecord(String dispatchId,String waybillId){
+        new Eql().params(Collections.asMap("waybillId",waybillId,"dispatchId",dispatchId)).execute();
+    }
+
+
+    public Result changeWayBillState(String waybillId,String state){
+        int result=new Eql().update("changeWayBillState").params(Collections.asMap("waybillId",waybillId,"state",state)).execute();
+        if(result>0)
+            return Result.build("1","update suc");
+        return Result.build("0","update error");
+    }
+
+    public List<DispatchInfo> getJourneyRecordByWayBillId(String wayBillId){
+        return  new Eql().params(Collections.asMap("wayBillId",wayBillId)).returnType(DispatchInfo.class).execute();
     }
 }

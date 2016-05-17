@@ -29,7 +29,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">管理调度信息
+                <h1 class="page-header">添加调度信息
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
@@ -81,6 +81,8 @@
                             <!-- /.col-lg-6 (nested) -->
                         </div>
                     </div>
+
+                    
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->

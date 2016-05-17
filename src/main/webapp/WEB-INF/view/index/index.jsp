@@ -66,9 +66,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12">
-            <textarea class="form-control" rows="3" placeholder="请输入单号:"></textarea>
+            <textarea id="waybillId" class="form-control" rows="3" placeholder="请输入单号:"></textarea>
             <br>
-            <a role="button" class="btn btn-block btn-default btn-xs" href="#">confirm</a>
+            <a role="button" id="query" class="btn btn-block btn-default btn-xs" href="#">confirm</a>
         </div>
         <div class="col-md-9 col-sm-8 col-xs-12">
             <img src="resources/modules/index/img/hermes_logo.png" alt="Apache Logo"

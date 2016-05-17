@@ -53,7 +53,7 @@
                 /login/** = anon
                 /index=anon
                 /logout = logout
-                /admin/** = anon
+                /admin/** = authc
             </value>
         </property>
     </bean>

@@ -24,18 +24,42 @@ VALUE (
 
 --[queryWayBill]
 SELECT
-        id,
+        wb.id as id,
         item_name as itemName,
         origin_place as originPlace,
         destination,
         weight,
         expense,
         state,
-        DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
         sender,
         receiver,
-        DATE_FORMAT(received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
-FROM hermes_waybill
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+
+--[getWayBillById]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+WHERE wb.id=#id#
 
 --[deleteWayBill]
         DELETE FROM hermes_waybill WHERE id=#1#
@@ -214,3 +238,74 @@ SELECT
     remark
 FROM hermes_vehicle
 WHERE id=#id#
+
+--[getNotOnWayWayBill]
+SELECT
+        id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
+FROM hermes_waybill
+WHERE state=0
+
+--[getAlreadyOnWayWayBill]
+SELECT
+        w.id as id,
+        w.item_name as itemName,
+        w.origin_place as originPlace,
+        w.destination as destination,
+        w.weight as weight,
+        w.expense as expense,
+        w.state as state,
+        DATE_FORMAT(w.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        w.sender as sender,
+        w.receiver as receiver,
+        DATE_FORMAT(w.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
+FROM hermes_waybill w,hermes_journey_record r
+WHERE r.dispatch_id=#dispatchId#
+AND r.waybill_id=w.id
+
+
+--[createJourneyRecord]
+INSERT INTO hermes_journey_record(
+                        dispatch_id,
+                        waybill_id,
+                        create_time,
+                        state
+                    )
+                    VALUES(
+                        #dispatchId#,
+                        #waybillId#,
+                        now(),
+                        0
+                    )
+--[deleteJourneyRecord]
+DELETE FROM hermes_journey_record
+ WHERE dispatch_id=#dispatchId#
+  AND waybill_id=#waybillId#;
+
+--[changeWayBillState]
+UPDATE hermes_waybill
+    SET state=#state#
+    WHERE id=#waybillId#
+--[getJourneyRecordByWayBillId]
+select
+	  d.id as id,
+      d.vehicle_id as vehicleId,
+      d.driver_id as driverId,
+      d.origin_place as originPlace,
+      d.destination as destination,
+      DATE_FORMAT(d.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+      DATE_FORMAT(d.arrive_time,'%Y-%m-%d %H:%i:%s') as arriveTime,
+      d.state as state
+    from hermes_journey_record r,
+         hermes_dispatch d
+where r.dispatch_id=d.id
+and r.waybill_id=#wayBillId#;

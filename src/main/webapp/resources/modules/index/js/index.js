@@ -4,5 +4,8 @@
 require(['jquery','bluebootstrap','util','css!common/css/style.css'],function($){
     $('.dropdown-toggle').dropdown();
     $('.collapse').collapse();
-    console.log('test');
+    $('#query').on('click',function(){
+        var id=$('#waybillId').val();
+        location.href='query?wayBillId='+id;
+    });
 });

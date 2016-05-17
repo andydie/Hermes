@@ -16,11 +16,14 @@
 <head>
     <base href="<%=basePath%>">
     <title></title>
-    <link rel="stylesheet" href="./resources/common/css/bootstrap.min.css"/>
     <script src="resources/common/js/require-config.js"></script>
-    <script src="resources/common/js/require.js" data-main="modules/login/js/query"></script>
+    <script src="resources/common/js/require.js" data-main="modules/index/js/query"></script>
 </head>
 <body>
-xixi
+<div class="panel-body">
+    <ul class="timeline" id="timeline">
+
+    </ul>
+</div>
 </body>
 </html>

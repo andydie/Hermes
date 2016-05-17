@@ -14,7 +14,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+        <a class="navbar-brand" href="index.html">Admin Page</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -70,18 +70,6 @@
                     <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="flot.html">Flot Charts</a>
-                        </li>
-                        <li>
-                            <a href="morris.html">Morris.js Charts</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-                <li>
                     <a href="#"><i class="fa fa-table fa-fw"></i>用户与权限管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -107,7 +95,10 @@
                             <a href="admin/addWayBill">创建运单</a>
                         </li>
                         <li>
-                            <a href="morris.html">管理运单</a>
+                            <a href="admin/manageWayBill">管理运单</a>
+                        </li>
+                        <li>
+                            <a href="admin/wayBillList">运单列表</a>
                         </li>
                     </ul>
                 </li>
@@ -122,6 +113,9 @@
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="admin/manageDispatch">调度列表</a>
+                        </li>
+                        <li>
+                            <a href="admin/dispatch/list">调度列表2</a>
                         </li>
                         <li>
                             <a href="admin/addDispatch">新增调度信息</a>

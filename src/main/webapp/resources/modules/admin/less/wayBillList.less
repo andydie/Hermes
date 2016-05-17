@@ -1,0 +1,69 @@
+.waybill-item {
+  padding: 45px 45px 30px;
+ // border: 1px solid rgba(74, 74, 74, 0.2);
+  .waybill-path {
+    font-size: 30px;
+    text-align: center;
+  }
+  .waybill-name {
+    font-size: 0.95em;
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+  }
+  .waybill-weight {
+    font-size: 0.95em;
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+  }
+  .waybill-createtime {
+    font-size: 0.95em;
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+  }
+  .line {
+    width: 50%;
+    height: 0;
+    border-bottom: 1px solid #a4e7ad;
+    margin-left: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transform: translate3d(-50%, 0, 0);
+  }
+  .waybill-btn{
+    text-align: center;
+  }
+  .btn-primary{
+    color: #fff;
+    border-radius: 17px;
+    &:hover, &:focus, &:active {
+      outline: none!important;
+    }
+  }
+
+  .waybill-delete {
+    cursor: pointer;
+    float: left;
+    margin-left: 40px;
+    span {
+      color: #aaa !important;
+    }
+    i {
+      color: #aaa !important;
+    }
+    font-size: 0.765em;
+  }
+  .waybill-detail {
+    float: right;
+    margin-right: 40px;
+    span {
+      color: #aaa !important;
+    }
+    i {
+      color: #aaa !important;
+    }
+    font-size: 0.765em;
+  }
+}

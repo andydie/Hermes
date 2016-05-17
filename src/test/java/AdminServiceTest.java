@@ -13,6 +13,12 @@ public class AdminServiceTest {
     String conf= "applicationContext.xml";
     ApplicationContext ac=new ClassPathXmlApplicationContext(conf);
     AdminService adminService=ac.getBean("adminService",AdminService.class);
+
+    @Test
+    public void queryWayBillTest(){
+        log.info(adminService.queryWayBill().toString());
+    }
+
     @Test
     public void getDispatchByIdTest(){
         log.info(adminService.getDispatchById("1").toString());
@@ -26,5 +32,10 @@ public class AdminServiceTest {
     @Test
     public void queryVehicleByIdTest(){
         log.info(adminService.queryVehicleById("12").toString());
+    }
+
+    @Test
+    public void getWayBillByIdTest(){
+        log.info(adminService.getWayBillById("3").toString());
     }
 }

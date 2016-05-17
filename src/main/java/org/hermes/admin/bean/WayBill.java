@@ -15,6 +15,8 @@ public class WayBill {
     private String sender;
     private String receiver;
     private String receivedTime;
+    private String staffId;
+    private String staffName;
 
     public String getId() {
         return id;
@@ -104,6 +106,22 @@ public class WayBill {
         this.receivedTime = receivedTime;
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
+    public String getStaffName() {
+        return staffName;
+    }
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
+
     @Override
     public String toString() {
         return "WayBill{" +
@@ -118,6 +136,8 @@ public class WayBill {
                 ", sender='" + sender + '\'' +
                 ", receiver='" + receiver + '\'' +
                 ", receivedTime='" + receivedTime + '\'' +
+                ", staffId='" + staffId + '\'' +
+                ", staffName='" + staffName + '\'' +
                 '}';
     }
 }
