@@ -44,33 +44,35 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form">
-                                    <label>车辆编号</label>
-                                    <div class="form-group form-inline">
-                                        <input type="text" class="form-control"  placeholder="请选择" readonly>
-                                        <button type="submit" class="btn btn-primary choose-vehicle">
-                                            选择车辆
-                                        </button>
-                                    </div>
-                                    <label>司机编号</label>
-                                    <div class="form-group form-inline">
-                                        <input id="originPlace" class="form-control" placeholder="请选择" readonly>
-                                        <button type="submit" class="btn btn-primary choose-driver">
-                                            选择司机
-                                        </button>
-                                    </div>
-                                </form>
+                                <label>车辆编号</label>
+
+                                <div class="form-group form-inline">
+                                    <input type="text" class="form-control choose-vehicle-input" placeholder="请选择" readonly>
+                                    <button class="btn btn-primary choose-vehicle">
+                                        选择车辆
+                                    </button>
+                                </div>
+                                <label>司机编号</label>
+
+                                <div class="form-group form-inline">
+                                    <input id="originPlace" class="form-control" placeholder="请选择" readonly>
+                                    <button class="btn btn-primary choose-driver">
+                                        选择司机
+                                    </button>
+                                </div>
                             </div>
                             <!-- /.col-lg-6 (nested) -->
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>始发地</label>
                                     <input id="sender" class="form-control">
+
                                     <p class="help-block">具体到区县</p>
                                 </div>
                                 <div class="form-group">
                                     <label>目的地</label>
                                     <input id="receiver" class="form-control">
+
                                     <p class="help-block">具体到区县</p>
                                 </div>
                             </div>
@@ -82,7 +84,7 @@
                         </div>
                     </div>
 
-                    
+
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
@@ -97,24 +99,22 @@
 
 
 </div>
-
-<div class="choose-vehicle-modal modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">选择Vehicle</h4>
-            </div>
-            <div class="modal-body row">
-                <div class="col-xs-12">
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary modal-confirm">Save changes</button>
-            </div>
-        </div>
+<div id="dlg-vehicle"  closed="true" class="easyui-dialog" title="选择车辆" data-options="iconCls:'icon-save'" style="width:460px;height:370px;padding:10px">
+    <table id="dg-vehicle" class="easyui-datagrid"
+           style="width:405px;height:250px"
+           data-options="singleSelect:false">
+        <thead>
+        <tr>
+            <th data-options="field:'ck',checkbox:true"></th>
+            <th data-options="field:'id',width:80">id</th>
+            <th data-options="field:'plateNumber',width:100">车牌</th>
+            <th data-options="field:'vehicleType',width:80,align:'right'">车辆类型</th>
+            <th data-options="field:'ownerName',width:80,align:'right'">车主</th>
+        </tr>
+        </thead>
+    </table>
+    <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+        <a class="easyui-linkbutton dlg-confirm" data-options="iconCls:'icon-ok'" style="width:80px">Ok</a>
     </div>
 </div>
 </body>

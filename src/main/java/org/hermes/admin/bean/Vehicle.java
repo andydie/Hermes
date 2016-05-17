@@ -12,6 +12,7 @@ public class Vehicle {
     private String ownerIdNumber;
     private String ownerAddress;
     private String remark;
+    private String state;
 
     public String getId() {
         return id;
@@ -77,9 +78,16 @@ public class Vehicle {
         this.remark = remark;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
-    public String
-    toString() {
+    public String toString() {
         return "Vehicle{" +
                 "id='" + id + '\'' +
                 ", plateNumber='" + plateNumber + '\'' +
@@ -89,6 +97,7 @@ public class Vehicle {
                 ", ownerIdNumber='" + ownerIdNumber + '\'' +
                 ", ownerAddress='" + ownerAddress + '\'' +
                 ", remark='" + remark + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }

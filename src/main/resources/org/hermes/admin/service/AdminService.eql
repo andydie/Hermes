@@ -160,7 +160,8 @@ INSERT INTO hermes_vehicle(
   owner_tel,
   owner_id_number,
   owner_address,
-  remark
+  remark,
+  state
 )
 VALUES (
     #plateNumber#,
@@ -169,7 +170,8 @@ VALUES (
     #ownerTel#,
     #ownerIdNumber#,
     #ownerAddress#,
-    #remark#
+    #remark#,
+    0
 )
     
 --[queryVehicle]
@@ -181,7 +183,8 @@ SELECT
     owner_tel as ownerTel,
     owner_id_number as ownerIdNumber,
     owner_address as ownerAddress,
-    remark
+    remark,
+    state
 FROM hermes_vehicle
     
 --[deleteVehicleInfo]
@@ -197,6 +200,11 @@ UPDATE hermes_vehicle SET
   owner_address=#ownerAddress#,
   remark=#remark#
 WHERE id=#id#
+
+--[updateVehicleState]
+UPDATE hermes_vehicle
+    SET state=#state#
+    WHERE id=#vehicleId#
 
 --[getDispatchById]
 SELECT
@@ -309,3 +317,9 @@ select
          hermes_dispatch d
 where r.dispatch_id=d.id
 and r.waybill_id=#wayBillId#;
+
+
+--[setWayBillStaffId]
+update hermes_waybill
+    set staff_id=#staffId#
+    where id=#wayBillId#

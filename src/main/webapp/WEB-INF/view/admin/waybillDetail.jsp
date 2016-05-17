@@ -46,8 +46,8 @@
                             <div class="row">
                                 <div class="col-xs-8">
                                     <table id="pg" class="easyui-propertygrid" style="width:300px"
-                                           data-options="showGroup:true,scrollbarSize:0">
-                                    </table>
+                                                   data-options="showGroup:true,scrollbarSize:0">
+                                </table>
                                 </div>
                             </div>
                         </div>

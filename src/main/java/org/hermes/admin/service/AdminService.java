@@ -110,6 +110,13 @@ public class AdminService {
         return Result.build("2","更新成功");
     }
 
+    public Result updateVehicleState(String vehicleId,String state){
+        int result=new Eql().update("updateVehicleInfo").params(Collections.asMap("vehicleId",vehicleId,"state",state)).execute();
+        if(result<1)
+            return Result.build("0","更新state失败");
+        return Result.build("2","更新state成功");
+    }
+
     public DispatchInfo getDispatchById(String id){
         return new Eql().selectFirst("getDispatchById").params(Collections.asMap("id",id)).returnType(DispatchInfo.class).execute();
     }
@@ -158,5 +165,13 @@ public class AdminService {
 
     public List<DispatchInfo> getJourneyRecordByWayBillId(String wayBillId){
         return  new Eql().params(Collections.asMap("wayBillId",wayBillId)).returnType(DispatchInfo.class).execute();
+    }
+
+
+    public Result setWayBillStaffId(String wayBillId,String staffId){
+        int result=new Eql().update("setWayBillStaffId").params(Collections.asMap("wayBillId",wayBillId,"staffId",staffId)).execute();
+        if(result>0)
+            return Result.build("1","更新成功");
+        return Result.build("0","更新失败");
     }
 }

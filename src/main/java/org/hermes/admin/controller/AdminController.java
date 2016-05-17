@@ -1,5 +1,6 @@
 package org.hermes.admin.controller;
 
+import com.sun.org.apache.regexp.internal.REUtil;
 import org.hermes.admin.bean.DispatchInfo;
 import org.hermes.admin.bean.Driver;
 import org.hermes.admin.bean.Vehicle;
@@ -56,6 +57,12 @@ public class AdminController {
     @RequestMapping("ajax/deleteWayBill")
     public Result deleteWayBill(@RequestBody Map<String,String> map){
        return adminService.deleteWayBill(map.get("id"));
+    }
+
+    @ResponseBody
+    @RequestMapping("setWayBillStaffId/{wayBillId}")
+    public Result setWayBillStaffId(@PathVariable String wayBillId,@RequestParam String staffId){
+        return adminService.setWayBillStaffId(wayBillId,staffId);
     }
 
     @ResponseBody
@@ -131,6 +138,12 @@ public class AdminController {
     @RequestMapping("ajax/updateVehicle")
     public Result updateVehicleInfo(@RequestBody Vehicle vehicle){
         return adminService.updateVehicleInfo(vehicle);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/updateVehicleState/{vehicleId}")
+    public Result updateVehicleState(@PathVariable String vehicleId,@RequestParam String state){
+        return adminService.updateVehicleState(vehicleId,state);
     }
 
 

@@ -21,6 +21,17 @@ require(['jquery',
                 $('.waybill-list').append(formatWayBillItem(waybill));
             });
         });
+
+        $('.waybill-list').on('click','.waybill-task',function(){
+            var wayBillId=$(this).attr('value');
+            $._send('shiro/getCurrentUserName',function(data){
+                var staffId=data;
+                $.sendm('admin/setWayBillStaffId/'+wayBillId,{staffId:staffId},function(data){
+                    console.log(data);
+                    location.reload();
+                });
+            });
+        });
     }
 );
 
@@ -49,6 +60,8 @@ function formatWayBillItem(waybill){
     '<div class="waybill-btn">'+
     '<button class="btn ' +
         btnClass +
+        '"value="' +
+        waybill.id +
         '" type="button">'+
     '<span>'+
     btnText+
