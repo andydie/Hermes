@@ -39,15 +39,19 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <br>
+                        <button class="btn btn-danger waybill-arrival-btn" style="display: none;">抵达</button>
+                        <div class="alert alert-success waybill-arrival-alert" role="alert" style="display: none;"></div>
                     </div>
                     <div class="panel-body">
                         <div class="row container-fluid" id="dispatch-list">
                             <div class="row">
-                                <div class="col-xs-8">
+                                <div class="col-xs-6">
                                     <table id="pg" class="easyui-propertygrid" style="width:300px"
                                                    data-options="showGroup:true,scrollbarSize:0">
-                                </table>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6" id="time-panel">
+
                                 </div>
                             </div>
                         </div>

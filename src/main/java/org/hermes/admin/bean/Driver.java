@@ -4,16 +4,17 @@ package org.hermes.admin.bean;
  * Created by admin on 2016/2/22.
  */
 public class Driver {
-    public String id;
-    public String name;
-    public String sex;
-    public String driverLicenceType;
-    public String driverLicenceNumber;
-    public String driverYears;
-    public String idNumber;
-    public String tel;
-    public String address;
-    public String remark;//备注
+    private String id;
+    private String name;
+    private String sex;
+    private String driverLicenceType;
+    private String driverLicenceNumber;
+    private String driverYears;
+    private String idNumber;
+    private String tel;
+    private String address;
+    private String remark;//备注
+    private String state;
 
     public String getId() {
         return id;
@@ -95,6 +96,14 @@ public class Driver {
         this.remark = remark;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     @Override
     public String toString() {
         return "Driver{" +
@@ -108,6 +117,7 @@ public class Driver {
                 ", tel='" + tel + '\'' +
                 ", address='" + address + '\'' +
                 ", remark='" + remark + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }

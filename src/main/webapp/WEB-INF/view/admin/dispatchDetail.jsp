@@ -39,7 +39,8 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <br>
+                        <button class="btn btn-primary" id="send-btn" style="display: none;">发车</button>
+                        <button class="btn btn-danger" id="arrival-btn" style="display: none;">抵达</button>
                     </div>
                     <div class="panel-body">
                         <div class="row container-fluid" id="dispatch-list">
@@ -50,7 +51,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row state0" style="display: none;">
                                 <div class="col-xs-6">
                                     <table id="dg" class="easyui-datagrid" title="选择要运输的货物"
                                            style="width:450px;height:250px"
@@ -66,7 +67,6 @@
                                         </tr>
                                         </thead>
                                     </table>
-
                                     <button class="btn btn-primary" id="add-dispatch">确认</button>
 
                                 </div>
@@ -86,9 +86,25 @@
                                         </tr>
                                         </thead>
                                     </table>
-
                                     <button class="btn btn-primary" id="delete-dispatch">删除</button>
 
+                                </div>
+                            </div>
+                            <div class="row state1" style="display: none;">
+                                <div class="col-xs-6">
+                                    <table id="list-dg" class="easyui-datagrid" title="货物列表"
+                                           style="width:450px;height:250px"
+                                           data-options="singleSelect:false">
+                                        <thead>
+                                        <tr>
+                                            <th data-options="field:'id',width:80">id</th>
+                                            <th data-options="field:'itemName',width:100">名称</th>
+                                            <th data-options="field:'originPlace',width:80,align:'right'">始发地</th>
+                                            <th data-options="field:'destination',width:80,align:'right'">目的地</th>
+                                            <th data-options="field:'weight',width:80">重量</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
                                 </div>
                             </div>
                         </div>

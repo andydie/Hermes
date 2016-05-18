@@ -13,8 +13,11 @@ require(['jquery',
     function($,_){
         $('#side-menu').metisMenu();
 
+        var vehicleId;
+        var driverId;
+
         $('.choose-vehicle').on('click',function(){
-            $('#dlg-vehicle').dialog();
+            $('#vehicle-modal').window();
             $._send("admin/ajax/queryVehicle",function(data){
                 var vehicleData=_.filter(data,function(vehicle){
                    return vehicle.state=='0';
@@ -24,14 +27,59 @@ require(['jquery',
                     data:vehicleData,
                     singleSelect:true
                 });
-                $('#dlg-vehicle').dialog('open');
+                $('#vehicle-modal').window('open');
             });
         });
-        $('#dlg-vehicle .dlg-confirm').on('click',function(){
+
+        $('.choose-driver').on('click',function(data){
+            $('#driver-modal').window();
+            $._send('admin/ajax/queryDriver',function(data){
+                var driverData=_.filter(data,function(driver){
+                    return driver.state=='0';
+                });
+                console.log(driverData);
+                $('#dg-driver').datagrid({
+                    data:driverData,
+                    singleSelect:true
+                });
+                $('#driver-modal').window('open');
+            });
+        });
+
+        $('#vehicle-modal .dlg-confirm').on('click',function(){
            var node=$('#dg-vehicle').datagrid('getChecked');
-            $('#dlg-vehicle').dialog('close');
-            console.log(node[0].plateNumber);
+            $('#vehicle-modal').window('close');
+            vehicleId=node[0].id;
+            console.log(vehicleId);
             $('.choose-vehicle-input').val(node[0].plateNumber);
+        });
+        $('#driver-modal .dlg-confirm').on('click',function(){
+            var node=$('#dg-driver').datagrid('getChecked');
+            $('#driver-modal').window('close');
+            driverId=node[0].id;
+            console.log(driverId);
+            $('.choose-driver-input').val(node[0].name);
+        });
+
+        $('#commitDispatch').on('click',function(){
+            var originPlace=$('#origin-place').val();
+            var destination=$('#destination').val();
+            if(vehicleId&&driverId&&originPlace&&destination){
+                $.sendj('admin/ajax/addDispatchInfo',{
+                    vehicleId:vehicleId,
+                    driverId:driverId,
+                    originPlace:originPlace,
+                    destination:destination
+                },function(data){
+                    console.log(data);
+                    location.href='admin/dispatch/list';
+                });
+            }else{
+                $('.dispatch-alter').css({display:'block'});
+                setTimeout(function(){
+                    $('.dispatch-alter').css({display:'none'});
+                },1000);
+            }
         });
     }
 );

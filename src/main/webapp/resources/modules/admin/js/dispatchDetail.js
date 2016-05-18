@@ -19,35 +19,51 @@ require(['jquery',
         var dispatchId=hi.getQueryString('dispatchId');
         var vehicleId;
         var driverId;
+        var dispatchData;
         var vehicleData;
         var driverData;
         $._send('admin/ajax/getDispatchById/'+dispatchId,function(data){
             vehicleId=data.vehicleId;
             driverId=data.driverId;
+            dispatchData=data;
             $._send('admin/ajax/queryDriverById/'+driverId,function(data){
                 driverData=data;
+                console.log(data);
                 if(driverData&&vehicleData)
-                    initDataGrid(driverData,vehicleData);
+                    initDataGrid(dispatchData,driverData,vehicleData);
             });
             $._send('admin/ajax/queryVehicleById/'+vehicleId,function(data){
                 vehicleData=data;
+                console.log(data);
                 if(driverData&&vehicleData)
-                    initDataGrid(driverData,vehicleData);
+                    initDataGrid(dispatchData,driverData,vehicleData);
             });
-        });
+            if(data.state=='0'){
+                $('#send-btn').show();
+                $('.state0').css({display:'block'});
+                $._send('admin/ajax/getNotOnWayWayBill',function(data){
+                    $('#dg').datagrid({
+                        data:data,
+                        singleSelect:false
+                    });
+                });
 
-        $._send('admin/ajax/getNotOnWayWayBill',function(data){
-            $('#dg').datagrid({
-                data:data,
-                singleSelect:false
-            });
-        });
-
-        $._send('admin/ajax/getAlreadyOnWayWayBill/'+dispatchId,function(data){
-            $('#delete-dg').datagrid({
-                data:data,
-                singleSelect:false
-            });
+                $._send('admin/ajax/getAlreadyOnWayWayBill/'+dispatchId,function(data){
+                    $('#delete-dg').datagrid({
+                        data:data,
+                        singleSelect:false
+                    });
+                });
+            }else{
+                data.state=='1'&&$('#arrival-btn').show();
+                $('.state1').css({display:'block'});
+                $._send('admin/ajax/getAlreadyOnWayWayBill/'+dispatchId,function(data){
+                    $('#list-dg').datagrid({
+                        data:data,
+                        singleSelect:false
+                    });
+                });
+            }
         });
 
         $('#delete-dispatch').on('click',function(){
@@ -76,11 +92,36 @@ require(['jquery',
                 location.reload();
             });
         });
-        function initDataGrid(driverData,vehicleData){
+
+        $('#send-btn').on('click',function(){
+            $._send('admin/ajax/dispatchSend/'+dispatchId,function(data){
+                console.log(data);
+                location.href='admin/dispatch/list';
+            });
+        });
+
+        $('#arrival-btn').on('click',function(){
+            $._send('admin/ajax/dispatchArrival/'+dispatchId,function(data){
+                console.log(data);
+                location.href='admin/dispatch/list';
+            });
+        });
+        function initDataGrid(dispatchData,driverData,vehicleData){
+            var dispatchSign='调度信息';
             var driverSign='司机信息';
             var vehicleSign='车辆信息';
             var gridData={};
             gridData.rows=new Array();
+            gridData.rows.push({
+                name:'始发地',
+                value:dispatchData.originPlace,
+                group:dispatchSign
+            });
+            gridData.rows.push({
+                name:'目的地',
+                value:dispatchData.destination,
+                group:dispatchSign
+            });
             gridData.rows.push({
                 name:'姓名',
                 value:driverData.name,

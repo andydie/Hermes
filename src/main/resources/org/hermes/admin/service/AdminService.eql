@@ -40,6 +40,8 @@ SELECT
 FROM hermes_waybill wb
 LEFT JOIN shiro_user u
 ON wb.staff_id=u.id
+WHERE wb.state!=-1
+ORDER BY wb.create_time DESC
 
 --[getWayBillById]
 SELECT
@@ -75,6 +77,7 @@ SELECT
       DATE_FORMAT(arrive_time,'%Y-%m-%d %H:%i:%s') as arriveTime,
       state
 FROM hermes_dispatch
+ORDER BY create_time DESC
     
 --[addDispatchInfo]
 INSERT INTO hermes_dispatch(
@@ -87,7 +90,7 @@ INSERT INTO hermes_dispatch(
 )
 VALUES (
   #vehicleId#,
-  #dirver_id#,
+  #driverId#,
   #originPlace#,
   #destination#,
   now(),
@@ -96,6 +99,21 @@ VALUES (
     
 --[deleteDispatchInfo]
         DELETE FROM hermes_dispatch WHERE id=#id#
+
+--[changeDispatchInfoState]
+  UPDATE hermes_dispatch
+    SET state=#state#
+    WHERE id=#dispatchId#
+
+--[setDispatchArrivalTime]
+UPDATE hermes_dispatch
+    SET arrive_time=now()
+    WHERE id=#dispatchId#
+
+--[setWayBillArriveTime]
+UPDATE hermes_waybill
+    SET received_time=now()
+    WHERE id=#wayBillId#
     
 --[addDriver]
   INSERT INTO hermes_driver(
@@ -107,7 +125,8 @@ VALUES (
     id_number,
     tel,
     address,
-    remark
+    remark,
+    state
   )
   VALUES (
     #name#,
@@ -118,7 +137,8 @@ VALUES (
     #idNumber#,
     #tel#,
     #address#,
-    #remark#
+    #remark#,
+    0
   )
     
 --[queryDriver]
@@ -132,7 +152,8 @@ SELECT
     id_number idNumber,
     tel,
     address,
-    remark
+    remark,
+    state
 FROM hermes_driver
     
 --[deleteDriver]
@@ -150,6 +171,11 @@ UPDATE hermes_driver SET
     address=#address#,
     remark=#remark#
 WHERE id=#id#
+
+--[updateDriverState]
+UPDATE hermes_driver
+    SET state=#state#
+    WHERE id=#driverId#
     
 
 --[addVehicle]
@@ -165,7 +191,7 @@ INSERT INTO hermes_vehicle(
 )
 VALUES (
     #plateNumber#,
-    #plateNumber#,
+    #vehicleType#,
     #ownerName#,
     #ownerTel#,
     #ownerIdNumber#,
@@ -292,12 +318,18 @@ INSERT INTO hermes_journey_record(
                         #dispatchId#,
                         #waybillId#,
                         now(),
-                        0
+                        1
                     )
 --[deleteJourneyRecord]
 DELETE FROM hermes_journey_record
  WHERE dispatch_id=#dispatchId#
   AND waybill_id=#waybillId#;
+
+--[changeJourneyRecordState]
+UPDATE hermes_journey_record
+    SET state=#state#
+    WHERE dispatch_id=#dispatchId#
+      AND waybill_id=#waybillId#;
 
 --[changeWayBillState]
 UPDATE hermes_waybill
@@ -317,6 +349,24 @@ select
          hermes_dispatch d
 where r.dispatch_id=d.id
 and r.waybill_id=#wayBillId#;
+
+--[getWayBillByDispatchId]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        wb.state as state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime
+FROM hermes_waybill wb,
+     hermes_journey_record jr
+WHERE wb.id=jr.waybill_id
+AND   jr.dispatch_id=#dispatchId#
 
 
 --[setWayBillStaffId]

@@ -22,9 +22,26 @@ require(['jquery',
             });
         });
 
+        $('.waybill-list').on('click','.waybill-delete',function(){
+            var wayBillId=$(this).attr('value');
+            $.confirmOn({
+                tipText: "是否删除该运单？",
+                confirmBtn: "删除",
+                cancelBtn: "取消",
+                confirmId: 'deleteWayBill',
+                afterConfirm: function () {
+                    $._send('admin/ajax/softDeleteWayBill/'+wayBillId,function(data){
+                        console.log(data);
+                        $.confirmOff('deleteWayBill');
+                        location.reload();
+                    });
+                }
+            });
+        });
+
         $('.waybill-list').on('click','.waybill-task',function(){
             var wayBillId=$(this).attr('value');
-            $._send('shiro/getCurrentUserName',function(data){
+            $._send('shiro/getCurrentStaffId',function(data){
                 var staffId=data;
                 $.sendm('admin/setWayBillStaffId/'+wayBillId,{staffId:staffId},function(data){
                     console.log(data);
@@ -70,7 +87,9 @@ function formatWayBillItem(waybill){
     '</div>'+
     '<br>'+
 
-    '<span class="waybill-delete" role-id="1">'+
+    '<span class="waybill-delete" value="' +
+        waybill.id +
+        '" role-id="1">'+
     '<i class="fa fa-undo">'+'</i>'+
     '  <span>删除</span>'+
     '</span>'+

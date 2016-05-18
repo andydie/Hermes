@@ -38,6 +38,8 @@ public class AdminService {
     }
 
     public Result addDispatchInfo(DispatchInfo dispatchInfo){
+        updateVehicleState(dispatchInfo.getVehicleId(),"1");
+        updateDriverState(dispatchInfo.getDriverId(),"1");
         int result=new Eql().insert("addDispatchInfo").params(dispatchInfo).execute();
         if(result<1)
             return Result.build("0","插入失败");
@@ -53,6 +55,33 @@ public class AdminService {
         if(result==1)
             return Result.build("2",id,"del suc");
         return Result.build("0",id,"del error");
+    }
+
+    public Result changeDispatchInfoState(String dispatchId,String state){
+        int result=new Eql().update("changeDispatchInfoState").params(Collections.asMap("dispatchId",dispatchId,"state",state)).execute();
+        if(result<1)
+            return Result.build("0","更新失败");
+        return Result.build("2","更新成功");
+    }
+    public Result setDispatchArrivalTime(String dispatchId){
+        int result=new Eql().update("setDispatchArrivalTime").params(Collections.asMap("dispatchId",dispatchId)).execute();
+        if(result<1)
+            return Result.build("0","更新失败");
+        return Result.build("2","更新成功");
+    }
+
+    public Result dispatchArrival(String dispatchId){
+        DispatchInfo dispatchInfo=getDispatchById(dispatchId);
+        updateDriverState(dispatchInfo.getDriverId(),"0");
+        updateVehicleState(dispatchInfo.getVehicleId(),"0");
+        changeDispatchInfoState(dispatchId,"2");
+        setDispatchArrivalTime(dispatchId);
+        List<WayBill> wayBills=getWayBillByDispatchId(dispatchId);
+        for(int i=0;i<wayBills.size();i++){
+            changeWayBillState(wayBills.get(i).getId(),"0");
+            changeJourneyRecordState(dispatchId,wayBills.get(i).getId(),"2");
+        }
+        return Result.build("1","抵达");
     }
 
     public Result addDriver(Driver driver){
@@ -78,6 +107,12 @@ public class AdminService {
     }
     public Result updateDriver(Driver driver){
         int result=new Eql().update("updateDriver").params(driver).execute();
+        if(result<1)
+            return Result.build("0","更新失败");
+        return Result.build("2","更新成功");
+    }
+    public Result updateDriverState(String driverId,String state){
+        int result=new Eql().update("updateDriverState").params(Collections.asMap("driverId",driverId,"state",state)).execute();
         if(result<1)
             return Result.build("0","更新失败");
         return Result.build("2","更新成功");
@@ -111,7 +146,7 @@ public class AdminService {
     }
 
     public Result updateVehicleState(String vehicleId,String state){
-        int result=new Eql().update("updateVehicleInfo").params(Collections.asMap("vehicleId",vehicleId,"state",state)).execute();
+        int result=new Eql().update("updateVehicleState").params(Collections.asMap("vehicleId",vehicleId,"state",state)).execute();
         if(result<1)
             return Result.build("0","更新state失败");
         return Result.build("2","更新state成功");
@@ -155,6 +190,10 @@ public class AdminService {
         new Eql().params(Collections.asMap("waybillId",waybillId,"dispatchId",dispatchId)).execute();
     }
 
+    public void changeJourneyRecordState(String dispatchId,String waybillId,String state){
+        new Eql().params(Collections.asMap("waybillId",waybillId,"dispatchId",dispatchId,"state",state)).execute();
+    }
+
 
     public Result changeWayBillState(String waybillId,String state){
         int result=new Eql().update("changeWayBillState").params(Collections.asMap("waybillId",waybillId,"state",state)).execute();
@@ -163,8 +202,16 @@ public class AdminService {
         return Result.build("0","update error");
     }
 
+    public void setWayBillArriveTime(String wayBillId){
+        new Eql().params(Collections.asMap("wayBillId",wayBillId)).execute();
+    }
+
     public List<DispatchInfo> getJourneyRecordByWayBillId(String wayBillId){
         return  new Eql().params(Collections.asMap("wayBillId",wayBillId)).returnType(DispatchInfo.class).execute();
+    }
+
+    public List<WayBill> getWayBillByDispatchId(String dispatchId){
+        return new Eql().params(Collections.asMap("dispatchId",dispatchId)).returnType(WayBill.class).execute();
     }
 
 

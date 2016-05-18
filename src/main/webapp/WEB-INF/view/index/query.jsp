@@ -17,13 +17,16 @@
     <base href="<%=basePath%>">
     <title></title>
     <script src="resources/common/js/require-config.js"></script>
-    <script src="resources/common/js/require.js" data-main="modules/index/js/query"></script>
+    <%--<script src="resources/common/js/require.js" data-main="modules/index/js/query"></script>--%>
+    <script src="resources/common/js/require.js" data-main="modules/index/js/timeline"></script>
 </head>
 <body>
 <div class="panel-body">
-    <ul class="timeline" id="timeline">
+<div class="row">
+    <div class="col-xs-6" id="time-panel">
 
-    </ul>
+    </div>
+</div>
 </div>
 </body>
 </html>

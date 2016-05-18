@@ -30,6 +30,7 @@ require(['jquery',
                 },
                 function(data){
                     console.log(data);
+                    location.href='admin/wayBillList';
                 }
             )
         });

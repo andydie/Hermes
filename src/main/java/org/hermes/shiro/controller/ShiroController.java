@@ -95,11 +95,11 @@ public class ShiroController {
     }
 
     @ResponseBody
-    @RequestMapping("getCurrentUserName")
+    @RequestMapping("getCurrentStaffId")
     public String getCurrentUserName(){
         Subject subject= SecurityUtils.getSubject();
         Session session=subject.getSession();
-        return (String)session.getAttribute("userName");
+        return (String)session.getAttribute("staffId");
     }
 
     @RequestMapping("user/list")

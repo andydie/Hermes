@@ -10,13 +10,10 @@ require(['jquery',
     'css!modules/admin/css/timeline.css'],
     function($){
         var wayBillId=hi.getQueryString("wayBillId");
-        console.log()
         $._send('admin/ajax/getJourneyRecordByWayBillId/'+wayBillId,function(data){
-            console.log(data);
             _.each(data,function(dispatch,index){
                 $('#timeline').append(formatTimeLine(dispatch,index));
                 console.log(dispatch);
-                console.log(formatTimeLine(dispatch,index))
             });
         });
     });
@@ -24,10 +21,10 @@ function formatTimeLine(dispatch,index){
     var direction='';
     var icon='fa-check';
     var color='success';
-    if(index%2!=0){
+    if(index%2!='0'){
         direction='class="timeline-inverted"';
     }
-    if(dispatch.state==0){
+    if(dispatch.state=='1'){
         icon='fa-credit-card';
         color='warning';
     }

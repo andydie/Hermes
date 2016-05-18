@@ -66,9 +66,34 @@ public class AdminController {
     }
 
     @ResponseBody
+    @RequestMapping("ajax/wayBillArrival/{wayBillId}")
+    public Result wayBillArrival(@PathVariable String wayBillId){
+        adminService.setWayBillArriveTime(wayBillId);
+        return adminService.changeWayBillState(wayBillId,"2");
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/softDeleteWayBill/{wayBillId}")
+    public Result softDeleteWayBill(@PathVariable String wayBillId){
+        return adminService.changeWayBillState(wayBillId,"-1");
+    }
+
+    @ResponseBody
     @RequestMapping("ajax/addDispatchInfo")
     public Result addDispatchInfo(@RequestBody DispatchInfo dispatchInfo){
         return adminService.addDispatchInfo(dispatchInfo);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/dispatchSend/{dispatchId}")
+    public Result dispatchSend(@PathVariable String dispatchId){
+        return adminService.changeDispatchInfoState(dispatchId,"1");
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/dispatchArrival/{dispatchId}")
+    public Result dispatchArrival(@PathVariable String dispatchId){
+        return adminService.dispatchArrival(dispatchId);
     }
 
     @ResponseBody
@@ -140,6 +165,8 @@ public class AdminController {
         return adminService.updateVehicleInfo(vehicle);
     }
 
+
+    //可删
     @ResponseBody
     @RequestMapping("ajax/updateVehicleState/{vehicleId}")
     public Result updateVehicleState(@PathVariable String vehicleId,@RequestParam String state){
