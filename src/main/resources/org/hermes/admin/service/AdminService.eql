@@ -373,3 +373,96 @@ AND   jr.dispatch_id=#dispatchId#
 update hermes_waybill
     set staff_id=#staffId#
     where id=#wayBillId#
+
+--[queryWayBillByItemName]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+WHERE wb.state!=-1
+AND
+item_name like CONCAT('%',#itemName#,'%')
+ORDER BY wb.create_time DESC
+
+--[queryWayBillByOriginPlace]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+WHERE wb.state!=-1
+AND
+origin_place like CONCAT('%',#originPlace#,'%')
+ORDER BY wb.create_time DESC
+
+--[queryWayBillByDestination]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+WHERE wb.state!=-1
+AND
+destination like CONCAT('%',#destination#,'%')
+ORDER BY wb.create_time DESC
+
+--[queryWayBillLimitTime]
+SELECT
+        wb.id as id,
+        item_name as itemName,
+        origin_place as originPlace,
+        destination,
+        weight,
+        expense,
+        state,
+        DATE_FORMAT(wb.create_time,'%Y-%m-%d %H:%i:%s') as createTime,
+        sender,
+        receiver,
+        DATE_FORMAT(wb.received_time,'%Y-%m-%d %H:%i:%s') as receivedTime,
+        u.id as staff_id,
+        u.staff_name as staff_name
+FROM hermes_waybill wb
+LEFT JOIN shiro_user u
+ON wb.staff_id=u.id
+WHERE wb.state!=-1
+AND(
+received_time BETWEEN #beginTime# AND #endTime#
+)
+ORDER BY wb.create_time DESC

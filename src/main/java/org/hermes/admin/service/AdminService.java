@@ -9,6 +9,7 @@ import org.hermes.common.bean.Result;
 import org.n3r.eql.Eql;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -220,5 +221,26 @@ public class AdminService {
         if(result>0)
             return Result.build("1","更新成功");
         return Result.build("0","更新失败");
+    }
+
+    public List<WayBill> queryWayBillByItemName(String itemName){
+        return new Eql().params(Collections.asMap("itemName",itemName)).returnType(WayBill.class).execute();
+    }
+
+    public List<WayBill> queryWayBillByOriginPlace(String originPlace){
+        return new Eql().params(Collections.asMap("originPlace",originPlace)).returnType(WayBill.class).execute();
+    }
+
+    public List<WayBill> queryWayBillByDestination(String destination){
+        return new Eql().params(Collections.asMap("destination",destination)).execute();
+    }
+
+    public List<WayBill> queryWayBillLimitTime(String beginStr,String endStr){
+        Date beginTime=new Date();
+        Date endTime=new Date();
+        beginTime.setTime(Long.parseLong(beginStr));
+        endTime.setTime(Long.parseLong(endStr));
+        return new Eql().params(Collections.asMap("beginTime",beginTime,"endTime",endTime))
+                .returnType(WayBill.class).execute();
     }
 }

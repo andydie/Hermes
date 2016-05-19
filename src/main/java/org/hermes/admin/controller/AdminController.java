@@ -42,6 +42,30 @@ public class AdminController {
     }
 
     @ResponseBody
+    @RequestMapping("ajax/queryWayBillByItemName")
+    public List<WayBill> queryWayBillByItemName(@RequestParam String itemName){
+        return adminService.queryWayBillByItemName(itemName);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/queryWayBillByOriginPlace")
+    public List<WayBill> queryWayBillByOriginPlace(@RequestParam String originPlace){
+        return adminService.queryWayBillByOriginPlace(originPlace);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/queryWayBillByDestination")
+    public List<WayBill> queryWayBillByDestination(@RequestParam String destination){
+        return adminService.queryWayBillByDestination(destination);
+    }
+
+    @ResponseBody
+    @RequestMapping("ajax/queryWayBillLimitTime")
+    public List<WayBill> queryWayBillLimitTime(@RequestParam String beginStr,@RequestParam String endStr){
+        return adminService.queryWayBillLimitTime(beginStr,endStr);
+    }
+
+    @ResponseBody
     @RequestMapping("ajax/getNotOnWayWayBill")
     public List<WayBill> getNotOnWayWayBill(){
         return adminService.getNotOnWayWayBill();
@@ -242,4 +266,8 @@ public class AdminController {
         return "admin/waybillDetail";
     }
 
+    @RequestMapping("waybill/search")
+    public String gotoWayBillSearch(){
+        return "admin/waybillSearch";
+    }
 }

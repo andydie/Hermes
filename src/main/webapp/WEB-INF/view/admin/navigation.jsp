@@ -100,6 +100,9 @@
                         <li>
                             <a href="admin/wayBillList">运单列表</a>
                         </li>
+                        <li>
+                            <a href="admin/waybill/search">运单查询</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
