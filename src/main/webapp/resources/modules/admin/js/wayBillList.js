@@ -67,7 +67,7 @@ function formatWayBillItem(waybill){
     waybill.itemName+
     '</div>'+
     '<div class="waybill-weight">'+
-    waybill.weight+
+    waybill.weight+'kg'+
     '</div>'+
     '<div class="waybill-createtime">'+
     waybill.createTime+

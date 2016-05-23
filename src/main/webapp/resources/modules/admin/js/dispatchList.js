@@ -59,7 +59,7 @@ function dispatchListFormat(dispatch){
         '">'+
     '<div class="panel-footer">'+
     '<span class="pull-left">'+
-        'View Details'+
+        '查看详情'+
     '</span>'+
     '<span class="pull-right">'+'<i class="fa fa-arrow-circle-right">'+'</i>'+'</span>'+
     '<div class="clearfix">'+'</div>'+

@@ -64,6 +64,11 @@
                                         <p class="help-block">密码不宜太简单</p>
                                     </div>
                                     <div class="form-group">
+                                        <label>真实姓名</label>
+                                        <input id="staff-name" type="text" class="form-control">
+                                        <p class="help-block">请如实填写</p>
+                                    </div>
+                                    <div class="form-group">
                                         <label>选择角色</label>
                                         <select class="form-control" id="user-role">
 
@@ -75,7 +80,6 @@
                                     <div class="alert alert-danger hide" role="alert">
                                         创建失败,未知原因!
                                     </div>
-                                    <a href="admin/addWayBill"><img src="images/ZY-A.png" name="0" style="display:block" onclick="addCookie('carname','0',1);">11</a>
                                 </form>
                             </div>
                             <div class="col-xs-4 col-xs-offset-4" style="text-align: center;">

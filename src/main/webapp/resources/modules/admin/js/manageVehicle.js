@@ -126,7 +126,7 @@ function loadTableData(data){
             },{
                 targets:8,
                 data:null,
-                defaultContent:'<button type="button" class="btn btn-danger btn-sm vehicle-del">del</button>' +
+                defaultContent:'<button type="button" class="btn btn-danger btn-sm vehicle-del">删除</button>' +
                 '<button type="button" class="btn btn-primary btn-sm vehicle-update">更改</button>'
             }
         ],

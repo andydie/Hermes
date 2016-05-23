@@ -17,4 +17,9 @@ public class IndexController {
     public String query(){
         return "index/query";
     }
+
+    @RequestMapping("error")
+    public String error(){
+        return "error/404";
+    }
 }

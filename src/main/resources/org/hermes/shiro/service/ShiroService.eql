@@ -79,11 +79,13 @@ delete from shiro_user where id=#userId#
 insert into shiro_user(
             username,
             password,
+            staff_name,
             role_id
         )
         values(
             #username#,
             #password#,
+            #staffName#,
             #roleId#
         )
 --[getAllPermission]

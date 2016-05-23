@@ -46,9 +46,6 @@
 
                         </div>
                         <!-- /.row (nested) -->
-                        <div class="col-xs-4 col-xs-offset-4" style="text-align: center;">
-                            <button id="addDriver" type="button" class="btn btn-primary">ADD</button>
-                        </div>
                     </div>
                     <!-- /.panel-body -->
                 </div>

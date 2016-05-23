@@ -25,7 +25,8 @@ require(['jquery',
             var userName=$('#user-name').val();
             var password=$('#password').val();
             var roleId=$roleSelect.val();
-            $.sendj('shiro/add-user',{username:userName,password:password,roleId:roleId},function(data){
+            var staffName=$('#staff-name').val();
+            $.sendj('shiro/add-user',{username:userName,password:password,roleId:roleId,staffName:staffName},function(data){
                 console.log(data);
                 $('.alert').addClass('hide');
                 if(data.code=='1'){

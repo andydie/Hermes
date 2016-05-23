@@ -42,7 +42,7 @@
             <div class="col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Basic Form Elements
+                       运单列表
                     </div>
                     <div class="panel-body">
                         <div class="row container-fluid waybill-list">
@@ -57,108 +57,9 @@
         <!-- /.row -->
     </div>
     <!-- /#page-wrapper -->
-    <div class="vehicle-modal modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">添加Vehicle</h4>
-                </div>
-                <div class="modal-body row">
-                    <div class="col-xs-12">
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车辆牌号</span>
-                            <input type="text" class="form-control plateNumber">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车辆类型</span>
-                            <input type="text" class="form-control vehicleType">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主姓名</span>
-                            <input type="text" class="form-control ownerName">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主电话</span>
-                            <input type="tel" class="form-control ownerTel">
-                        </div>
 
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主身份证</span>
-                            <input type="text" class="form-control ownerIdNumber">
-                        </div>
 
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主住址</span>
-                            <input type="text" class="form-control ownerAddress">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">备注</span>
-                            <input type="text" class="form-control remark">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary modal-confirm">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="update-vehicle-modal modal fade" id="myModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" class="myModalLabel">修改</h4>
-                </div>
-                <div class="modal-body row">
-                    <div class="col-xs-12">
-                        <input type="text" class="hidden id">
-
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车辆牌号</span>
-                            <input type="text" class="form-control plateNumber">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车辆类型</span>
-                            <input type="text" class="form-control vehicleType">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主姓名</span>
-                            <input type="text" class="form-control ownerName">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主电话</span>
-                            <input type="tel" class="form-control ownerTel">
-                        </div>
-
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主身份证</span>
-                            <input type="text" class="form-control ownerIdNumber">
-                        </div>
-
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">车主住址</span>
-                            <input type="text" class="form-control ownerAddress">
-                        </div>
-                        <div class="input-group form-group">
-                            <span class="input-group-addon">备注</span>
-                            <input type="text" class="form-control remark">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary modal-confirm">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <!-- /#wrapper -->
 
