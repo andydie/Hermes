@@ -126,6 +126,18 @@
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>公告管理<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="display/article/create">新增公告</a>
+                        </li>
+                        <li>
+                            <a href="display/article/list">公告列表</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

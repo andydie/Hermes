@@ -12,7 +12,9 @@ var require = {
         'mn': 'common/js/backbone.marionette',
         'backbone.wreqr': 'common/js/backbone.wreqr',
         'backbone.babysitter': 'common/js/backbone.babysitter',
-        'easyui':'common/js/jquery.easyui.min'
+        'easyui':'common/js/jquery.easyui.min',
+        'kindeditor':'common/kindeditor/kindeditor',
+        'zh_CN':'common/kindeditor/lang/zh_CN'
     },
     shim: {
         bootstrap: {
@@ -68,6 +70,13 @@ var require = {
                 'jquery',
                 'css!common/css/easyui.css',
                 'css!common/css/icon.css'
+            ]
+        },
+        zh_CN:{
+            deps:[
+                'jquery',
+                'kindeditor',
+                'css!common/kindeditor/themes/default/default.css'
             ]
         }
     },
