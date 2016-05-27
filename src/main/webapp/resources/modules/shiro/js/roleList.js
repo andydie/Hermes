@@ -12,7 +12,7 @@ require(['jquery',
     ],
     function ($, _) {
         $('#side-menu').metisMenu();
-
+        hi.initMenu($);
         var roleList;
         var $roleSelect = $('#user-role');
         $._send('shiro/all-role', function (data) {

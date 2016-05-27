@@ -19,6 +19,7 @@ require(['jquery',
     ],
     function ($, Backbone, Marionette, _, tpl){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var waybillId=hi.getQueryString('waybillId');
         $._send('admin/ajax/getWayBill/'+waybillId,function(data){
             console.log(data);

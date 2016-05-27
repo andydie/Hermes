@@ -15,6 +15,7 @@ require(['jquery',
     ],
     function($,_){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         $._send('admin/ajax/queryWayBill',function(data){
             console.log(data);
             _.each(data,function(waybill){

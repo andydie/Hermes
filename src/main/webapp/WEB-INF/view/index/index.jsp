@@ -211,54 +211,13 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-body">
-
-                        <h4>
-                            <a href="#">
-                                身份验证
-                            </a>
-                        </h4>
-                        即在应用中谁能证明他就是他本人。一般提供如他们的身份ID一些标识信息来表明他就是他本人，如提供身份证，用户名/密码来证明...
-                        <hr>
-
-                        <h4><a href="#">principals</a></h4>
-                        身份，即主体的标识属性，可以是任何东西，如用户名、邮箱等，唯一即可。
-                        一个主体可以有多个principals，但只有一个Primary principals，一般是用户名/密码/手机号...
-                        <hr>
-
-                        <h4><a href="#">credentials</a></h4>
-                        证明/凭证，即只有主体知道的安全值，如密码/数字证书等。
-                        最常见的principals和credentials组合就是用户名/密码了...
+                    <div id="article-list" class="panel-body">
 
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">Latest Activity</h4>
-                    </div>
-                    <div class="panel-body">
-
-                        <div>
-                            <a href="#">@</a>
-                            <a href="#">测试</a>: 此处应有文字此处应有文字此处应有文字
-                        </div>
-                        <hr>
-                        <div>
-                            <a href="#">@</a>
-                            <a href="#">测试</a>: 此处应有文字此处应有文字此处应有文字
-                        </div>
-                        <hr>
-
-                        <div>
-                            <a href="#">@</a>
-                            <a href="#">测试</a>: 此处应有文字此处应有文字此处应有文字
-                        </div>
-                        <hr>
-
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>

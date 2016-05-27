@@ -9,7 +9,7 @@ require(['jquery',
         'css!modules/admin/css/sb-admin-2.css'],
     function($){
         $('#side-menu').metisMenu();
-
+        hi.initMenu($);
         $('#commitWayBill').click(function(){
             var itemName=$('#itemName').val(),
                 originPlace=$('#originPlace').val(),
@@ -54,12 +54,6 @@ require(['jquery',
             }
         });
 
-        var url = window.location;
-        var element = $('ul.nav a').filter(function() {
-            return this.href == url || url.href.indexOf(this.href) == 0;
-        }).addClass('active').parent().parent().addClass('in').parent();
-        if (element.is('li')) {
-            element.addClass('active');
-        }
+
     }
 );

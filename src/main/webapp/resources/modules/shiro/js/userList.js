@@ -16,6 +16,7 @@ require(['jquery',
         'css!modules/shiro/css/user-list.css'],
     function ($, Backbone, Marionette, _, tpl) {
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         initHi($, Backbone, Marionette, _);
         hi.app.s(tpl);
 

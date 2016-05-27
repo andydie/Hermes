@@ -10,7 +10,7 @@ require(['jquery',
         'css!modules/admin/css/sb-admin-2.css'],
     function ($,_) {
         $('#side-menu').metisMenu();
-
+        hi.initMenu($);
         var roleList;
         var $roleSelect=$('#user-role');
         $._send('shiro/all-role', function (data) {

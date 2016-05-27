@@ -14,6 +14,7 @@ require(['jquery',
     ],
     function($,_){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var $wayBillList=$('.waybill-list');
         var $alertEmpty=$('.alert-empty');
         $('.query-waybill-id button').on('click',function(){

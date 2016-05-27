@@ -12,8 +12,8 @@ require(['jquery',
         'css!modules/admin/css/font-awesome.min.css',
         'css!modules/admin/css/sb-admin-2.css'],
     function($,_){
-        $('.testha').parent().parent().addClass('active');
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         initTable();
         $('#addVehicle').click(function(){
             $('.vehicle-modal').modal();

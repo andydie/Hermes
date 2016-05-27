@@ -10,6 +10,7 @@ require(['jquery',
         'css!modules/admin/css/sb-admin-2.css'],
     function ($) {
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var editor;
         var articleData;
         var articleId=hi.getQueryString("id");

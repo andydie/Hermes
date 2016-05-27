@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -92,7 +93,9 @@
                     <a href="#"><i class="fa fa-edit fa-fw"></i> 运单<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="admin/addWayBill">创建运单</a>
+                            <a href="admin/addWayBill">
+                                创建运单
+                            </a>
                         </li>
                         <li>
                             <a href="admin/manageWayBill">管理运单</a>

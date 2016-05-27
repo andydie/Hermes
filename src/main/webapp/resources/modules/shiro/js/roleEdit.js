@@ -13,6 +13,7 @@ require(['jquery',
     ],
     function ($,_) {
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var roleId=hi.getQueryString('roleId');
         var permissionList;
         $._send('shiro/all-permision', function (data) {

@@ -13,6 +13,7 @@ require(['jquery',
     ],
     function($,_){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var dispatchList;
         $._send('admin/ajax/queryDispatchInfo',function(data){
             dispatchList=data;

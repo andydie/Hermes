@@ -13,6 +13,7 @@ require(['jquery',
         'css!modules/admin/css/sb-admin-2.css'],
     function($,_){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         $._send('admin/ajax/queryDispatchInfo',function(data){
             dispatchData=data;
             drawTable(dispatchData);

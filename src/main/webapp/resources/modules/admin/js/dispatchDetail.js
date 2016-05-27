@@ -16,6 +16,7 @@ require(['jquery',
     ],
     function($,_){
         $('#side-menu').metisMenu();
+        hi.initMenu($);
         var dispatchId=hi.getQueryString('dispatchId');
         var vehicleId;
         var driverId;

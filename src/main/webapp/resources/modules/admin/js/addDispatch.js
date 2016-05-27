@@ -12,7 +12,7 @@ require(['jquery',
         'css!modules/admin/css/sb-admin-2.css'],
     function($,_){
         $('#side-menu').metisMenu();
-
+        hi.initMenu($);
         var vehicleId;
         var driverId;
 
