@@ -22,7 +22,7 @@
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
 
             <!-- /.dropdown-messages -->
@@ -30,7 +30,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
 
             <!-- /.dropdown-tasks -->
@@ -38,7 +38,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
 
             <!-- /.dropdown-alerts -->
@@ -46,7 +46,7 @@
         <!-- /.dropdown -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -76,68 +76,98 @@
                         <li>
                             <a href="#">用户管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="shiro/user/list">用户管理</a>
-                                </li>
-                                <li>
-                                    <a href="shiro/user/add">新增用户</a>
-                                </li>
+                                <shiro:hasPermission name="user:read">
+                                    <li>
+                                        <a href="shiro/user/list">用户管理</a>
+                                    </li>
+                                </shiro:hasPermission>
+                                <shiro:hasPermission name="user:create">
+                                    <li>
+                                        <a href="shiro/user/add">新增用户</a>
+                                    </li>
+                                </shiro:hasPermission>
                             </ul>
                         </li>
-                        <li>
-                            <a href="shiro/role/list">权限管理</a>
-                        </li>
+                        <shiro:hasPermission name="role:read">
+                            <li>
+                                <a href="shiro/role/list">权限管理</a>
+                            </li>
+                        </shiro:hasPermission>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-edit fa-fw"></i> 运单<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="admin/addWayBill">
-                                创建运单
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin/manageWayBill">管理运单</a>
-                        </li>
-                        <li>
-                            <a href="admin/wayBillList">运单列表</a>
-                        </li>
-                        <li>
-                            <a href="admin/waybill/search">运单查询</a>
-                        </li>
+                        <shiro:hasPermission name="waybill:create">
+                            <li>
+                                <a href="admin/addWayBill">
+                                    创建运单
+                                </a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="waybill:read">
+                            <li>
+                                <a href="admin/manageWayBill">管理运单</a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="waybill:read">
+                            <li>
+                                <a href="admin/wayBillList">运单列表</a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="waybill:read">
+                            <li>
+                                <a href="admin/waybill/search">运单查询</a>
+                            </li>
+                        </shiro:hasPermission>
                     </ul>
                 </li>
-                <li>
-                    <a href="admin/manageVehicle"><i class="fa fa-wrench fa-fw testha"></i>车辆管理</a>
-                </li>
-                <li>
-                    <a href="admin/manageDriver"><i class="fa fa-sitemap fa-fw"></i> 驾驶员管理</a>
-                </li>
+                <shiro:hasPermission name="vehicle:read">
+                    <li>
+                        <a href="admin/manageVehicle">
+                            <i class="fa fa-wrench fa-fw testha"></i>车辆管理
+                        </a>
+                    </li>
+                </shiro:hasPermission>
+                <shiro:hasPermission name="driver:read">
+                    <li>
+                        <a href="admin/manageDriver"><i class="fa fa-sitemap fa-fw"></i> 驾驶员管理</a>
+                    </li>
+                </shiro:hasPermission>
                 <li>
                     <a href="#"><i class="fa fa-files-o fa-fw"></i>调度管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="admin/manageDispatch">调度列表</a>
-                        </li>
-                        <li>
-                            <a href="admin/dispatch/list">调度列表2</a>
-                        </li>
-                        <li>
-                            <a href="admin/addDispatch">新增调度信息</a>
-                        </li>
+                        <shiro:hasPermission name="dispatch:read">
+                            <li>
+                                <a href="admin/manageDispatch">调度列表</a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="dispatch:read">
+                            <li>
+                                <a href="admin/dispatch/list">调度列表2</a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="dispatch:create">
+                            <li>
+                                <a href="admin/addDispatch">新增调度信息</a>
+                            </li>
+                        </shiro:hasPermission>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>公告管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="display/article/create">新增公告</a>
-                        </li>
-                        <li>
-                            <a href="display/article/list">公告列表</a>
-                        </li>
+                        <shiro:hasPermission name="article:create">
+                            <li>
+                                <a href="display/article/create">新增公告</a>
+                            </li>
+                        </shiro:hasPermission>
+                        <shiro:hasPermission name="article:read">
+                            <li>
+                                <a href="display/article/list">公告列表</a>
+                            </li>
+                        </shiro:hasPermission>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
