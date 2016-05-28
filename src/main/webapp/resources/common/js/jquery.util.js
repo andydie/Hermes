@@ -470,6 +470,7 @@
             showModal && $.loadOff(reqId);
         }, function () {
             error && error();
+            !error&&(location.href="shiro/unauthor");
             showModal && $.loadOff(reqId);
         }, type, contentType);
     };

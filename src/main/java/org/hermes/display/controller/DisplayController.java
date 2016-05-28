@@ -1,5 +1,6 @@
 package org.hermes.display.controller;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.hermes.common.bean.Result;
 import org.hermes.display.bean.Article;
 import org.hermes.display.service.DisplayService;
@@ -33,18 +34,21 @@ public class DisplayController {
         return displayService.queryArticleById(articleId);
     }
 
+    @RequiresPermissions("article:create")
     @ResponseBody
     @RequestMapping("article/ajax/saveArticle")
     public Result saveArticle(@RequestBody Article article){
         return displayService.saveArticle(article);
     }
 
+    @RequiresPermissions("article:update")
     @ResponseBody
     @RequestMapping("article/ajax/updateArticle")
     public Result updateArticle(@RequestBody Article article){
         return displayService.updateArticle(article);
     }
 
+    @RequiresPermissions("article:delete")
     @ResponseBody
     @RequestMapping("article/ajax/deleteArticleById/{articleId}")
     public Result deleteArticleById(@PathVariable String articleId){
