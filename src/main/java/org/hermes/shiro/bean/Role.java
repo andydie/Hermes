@@ -9,6 +9,7 @@ public class Role {
     private String roleId;
     private String roleName;
     private String roleDesc;
+    private String type;
     private List<Permission> permissions;
 
     public String getRoleId() {
@@ -43,12 +44,21 @@ public class Role {
         this.permissions = permissions;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
                 "roleId='" + roleId + '\'' +
                 ", roleName='" + roleName + '\'' +
                 ", roleDesc='" + roleDesc + '\'' +
+                ", type='" + type + '\'' +
                 ", permissions=" + permissions +
                 '}';
     }

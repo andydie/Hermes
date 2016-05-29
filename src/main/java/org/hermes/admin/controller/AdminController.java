@@ -154,6 +154,12 @@ public class AdminController {
         return adminService.queryDispatchInfo();
     }
 
+    @RequiresPermissions("dispatch:delete")
+    @ResponseBody
+    @RequestMapping("ajax/deleteDispatch")
+    public Result deleteDispatch(@RequestParam String dispatchId){
+        return adminService.deleteDispatch(dispatchId);
+    }
     @RequiresPermissions("driver:create")
     @ResponseBody
     @RequestMapping("ajax/addDriver")
@@ -177,8 +183,8 @@ public class AdminController {
     @RequiresPermissions("driver:delete")
     @ResponseBody
     @RequestMapping("ajax/deleteDriver")
-    public Result deleteDriver(@RequestBody Map<String,String> map){
-        return adminService.deleteDriver(map.get("id"));
+    public Result deleteDriver(@RequestParam String id){
+        return adminService.deleteDriver(id);
     }
 
     @RequiresPermissions("driver:update")

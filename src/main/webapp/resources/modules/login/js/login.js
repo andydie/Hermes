@@ -8,7 +8,7 @@ require(['jquery','util'],function($,bootstrap){
         $.sendj('login/checkLogin',{username:username,password:password},function(data){
             if(data.code=='1'){
                 $('#warning-alert').hide();
-                window.location.href="admin/manageVehicle";
+                window.location.href="admin/addWayBill";
             }
             else{
                 $('#warning-alert').show();

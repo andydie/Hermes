@@ -162,7 +162,7 @@ function drawTable(data){
                         cancelBtn: "取消",
                         confirmId:'delDriver',
                         afterConfirm: function () {
-                            $.sendj('admin/ajax/deleteDriver',{id:rowData.id},function(data){
+                            $.sendm('admin/ajax/deleteDriver',{id:rowData.id},function(data){
                                 driverData.remove(rowData);
                                 updateTable();
                                 $.confirmOff('delDriver');

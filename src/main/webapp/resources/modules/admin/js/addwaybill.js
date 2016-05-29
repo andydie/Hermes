@@ -7,36 +7,37 @@ require(['jquery',
         'metisMenu',
         'css!modules/admin/css/font-awesome.min.css',
         'css!modules/admin/css/sb-admin-2.css'],
-    function($){
+    function ($) {
         $('#side-menu').metisMenu();
         hi.initMenu($);
-        $('#commitWayBill').click(function(){
-            var itemName=$('#itemName').val(),
-                originPlace=$('#originPlace').val(),
-                destination=$('#destination').val(),
-                expense=$('#expense').val(),
-                weight=$('#weight').val(),
-                sender=$('#sender').val(),
-                receiver=$('#receiver').val();
+        $('#commitWayBill').click(function () {
+            var itemName = $('#itemName').val(),
+                originPlace = $('#originPlace').val(),
+                destination = $('#destination').val(),
+                expense = $('#expense').val(),
+                weight = $('#weight').val(),
+                sender = $('#sender').val(),
+                receiver = $('#receiver').val();
             $.sendj('admin/ajax/addWayBill',
                 {
-                    itemName:itemName,
-                    originPlace:originPlace,
-                    destination:destination,
-                    expense:expense,
-                    weight:weight,
-                    sender:sender,
-                    receiver:receiver
+                    itemName: itemName,
+                    originPlace: originPlace,
+                    destination: destination,
+                    expense: expense,
+                    weight: weight,
+                    sender: sender,
+                    receiver: receiver
                 },
-                function(data){
+                function (data) {
                     console.log(data);
-                    location.href='admin/wayBillList';
+                    location.href = 'admin/wayBillList';
                 }
             )
         });
 
+        hi.validate($);
 
-        $(window).bind("load resize", function() {
+        $(window).bind("load resize", function () {
             topOffset = 50;
             width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
             if (width < 768) {

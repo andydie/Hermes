@@ -27,6 +27,10 @@ require(['jquery',
             vehicleId=data.vehicleId;
             driverId=data.driverId;
             dispatchData=data;
+            if(dispatchData.state=='1'){
+                $('#delete').hide();
+            }
+            console.log(data);
             $._send('admin/ajax/queryDriverById/'+driverId,function(data){
                 driverData=data;
                 console.log(data);
@@ -105,6 +109,21 @@ require(['jquery',
             $._send('admin/ajax/dispatchArrival/'+dispatchId,function(data){
                 console.log(data);
                 location.href='admin/dispatch/list';
+            });
+        });
+
+        $('#delete').on('click',function(){
+            $.confirmOn({
+                tipText: "是否删除该调度信息？",
+                confirmBtn: "删除",
+                cancelBtn: "取消",
+                confirmId:'delDriver',
+                afterConfirm: function () {
+                    $.sendm('admin/ajax/deleteDispatch',{dispatchId:dispatchId},function(data){
+                       console.log(data);
+                        location.href="admin/dispatch/list";
+                    });
+                }
             });
         });
         function initDataGrid(dispatchData,driverData,vehicleData){

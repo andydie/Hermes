@@ -60,6 +60,14 @@ require(['jquery',
     }
 );
 function roleListFormat(role) {
+    var deleteBtn='<span class="role-delete" role-id="' +
+                    role.roleId+
+                    '">' +
+                    '<i class="fa fa-undo"></i> ' +
+                    '<span>删除</span>' +
+                    '</span>';
+    if(role.type=='0')
+        deleteBtn='';
     return '<div class="col-xs-3">' +
         '<div class="thumbnail">' +
         '<div class="caption">' +
@@ -69,12 +77,7 @@ function roleListFormat(role) {
         '<p class="role-icon">' +
         '<span class="glyphicon glyphicon-fire"></span>' +
         '</p>' +
-        '<span class="role-delete" role-id="' +
-        role.roleId+
-        '">' +
-        '<i class="fa fa-undo"></i> ' +
-        '<span>删除</span>' +
-        '</span>' +
+            deleteBtn+
         '<span class="role-edit">' +
         '<a href="' +
         'shiro/role/edit?roleId=' + role.roleId +

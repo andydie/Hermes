@@ -74,6 +74,7 @@ require(['jquery',
 function initTable(){
     $._send('admin/ajax/queryVehicle',function(data){
         table&&table.fnClearTable();
+        $('#vehicleTable').html('');
         tableData=data;
         loadTableData(data);
     });

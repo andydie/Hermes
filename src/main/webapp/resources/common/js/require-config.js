@@ -114,6 +114,20 @@ hi.getQueryString=function(name){
         return  decodeURIComponent(r[2]);
     return null;
 }
+hi.validate=function initValidate($){
+    $('.not-null').on('blur', function () {
+        var $this = $(this);
+        var val = $this.val();
+        if (val == null || val == '') {
+            var  warningAlert=$('<div>').addClass('alert alert-warning').text('不得为空');
+            $this.parent().append(warningAlert);
+            setTimeout(function(){
+                warningAlert.remove();
+            },1000);
+        }
+    });
+}
+
 hi.initMenu=function($){
     var url = window.location;
     var element = $('ul.nav a').filter(function() {

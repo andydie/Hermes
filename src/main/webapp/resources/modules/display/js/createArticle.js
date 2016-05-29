@@ -15,9 +15,10 @@ require(['jquery',
         KindEditor.ready(function (K) {
                 editor = K.create('#create-area');
             });
+        editor = KindEditor.create('#create-area');
         setTimeout(function(){
             editor==null&&(editor = KindEditor.create('#create-area'));
-        },2000);
+        },1000);
         $('#confirm-create').on('click',function(){
             var content=editor.html();
             var title=$('#create-title').val();

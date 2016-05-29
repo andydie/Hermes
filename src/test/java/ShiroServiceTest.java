@@ -74,4 +74,9 @@ public class ShiroServiceTest {
         Result result=shiroService.addRole(role);
         log.info(result.toString());
     }
+
+    @Test
+    public void getUserNameCountTest(){
+        log.info(shiroService.getUserNameCount("admin").toString());
+    }
 }

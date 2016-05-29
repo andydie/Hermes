@@ -52,16 +52,16 @@
                                 <form role="form">
                                     <div class="form-group">
                                         <label>货物名称</label>
-                                        <input id="itemName" class="form-control">
+                                        <input id="itemName" class="form-control not-null">
                                     </div>
                                     <div class="form-group">
                                         <label>始发地</label>
-                                        <input id="originPlace" class="form-control">
+                                        <input id="originPlace" class="form-control not-null">
                                         <p class="help-block">具体到区县</p>
                                     </div>
                                     <div class="form-group">
                                         <label>目的地</label>
-                                        <input id="destination" class="form-control">
+                                        <input id="destination" class="form-control not-null">
                                         <p class="help-block">具体到区县</p>
                                     </div>
                                     <label>价格</label>
@@ -81,12 +81,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>发件人</label>
-                                    <input id="sender" class="form-control">
+                                    <input id="sender" class="form-control not-null">
                                     <p class="help-block">真实的姓名信息</p>
                                 </div>
                                 <div class="form-group">
                                     <label>收件人</label>
-                                    <input id="receiver" class="form-control">
+                                    <input id="receiver" class="form-control not-null">
                                     <p class="help-block">真实的姓名信息</p>
                                 </div>
                             </div>

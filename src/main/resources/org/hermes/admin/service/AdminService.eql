@@ -77,6 +77,7 @@ SELECT
       DATE_FORMAT(arrive_time,'%Y-%m-%d %H:%i:%s') as arriveTime,
       state
 FROM hermes_dispatch
+WHERE delete_state=1
 ORDER BY create_time DESC
     
 --[addDispatchInfo]
@@ -155,9 +156,12 @@ SELECT
     remark,
     state
 FROM hermes_driver
+WHERE delete_state=1
     
 --[deleteDriver]
-DELETE FROM hermes_driver WHERE id=#id#
+UPDATE hermes_driver
+SET delete_state=0
+WHERE id=#id#
     
 --[updateDriver]
 UPDATE hermes_driver SET
@@ -212,9 +216,12 @@ SELECT
     remark,
     state
 FROM hermes_vehicle
+WHERE delete_state=1
     
 --[deleteVehicleInfo]
-DELETE FROM hermes_vehicle WHERE id=#id#
+UPDATE hermes_vehicle
+ SET delete_state=0
+ WHERE id=#id#
     
 --[updateVehicleInfo]
 UPDATE hermes_vehicle SET
@@ -466,3 +473,8 @@ AND(
 received_time BETWEEN #beginTime# AND #endTime#
 )
 ORDER BY wb.create_time DESC
+
+--[deleteDispatch]
+UPDATE hermes_dispatch
+SET delete_state=0
+WHERE id=#id#

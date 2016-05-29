@@ -52,6 +52,10 @@ public class AdminService {
     }
 
     public Result deleteDispatchInfo(String id){
+        List<WayBill> wayBills=getWayBillByDispatchId(id);
+        for(int i=0;i<wayBills.size();i++){
+            changeWayBillState(wayBills.get(i).getId(),"0");
+        }
         int result=new Eql().delete("deleteDispatchInfo").params(id).execute();
         if(result==1)
             return Result.build("2",id,"del suc");
@@ -101,7 +105,7 @@ public class AdminService {
     }
 
     public Result deleteDriver(String id){
-        int result=new Eql().delete("deleteDriver").params(id).execute();
+        int result=new Eql().update("deleteDriver").params(Collections.asMap("id",id)).execute();
         if(result==1)
             return Result.build("2",id,"del suc");
         return Result.build("0",id,"del error");
@@ -134,7 +138,7 @@ public class AdminService {
     }
 
     public Result deleteVehicleInfo(String id){
-        int result=new Eql().delete("deleteVehicleInfo").params(id).execute();
+        int result=new Eql().update("deleteVehicleInfo").params(Collections.asMap("id",id)).execute();
         if(result==1)
             return Result.build("2",id,"del suc");
         return Result.build("0",id,"del error");
@@ -173,6 +177,12 @@ public class AdminService {
             changeWayBillState(arr[i],"1");
         }
         return Result.build("1",str,dispatchId);
+    }
+    public Result deleteDispatch(String id){
+        int result=new Eql().update("deleteDispatch").params(Collections.asMap("id",id)).execute();
+        if(result>0)
+            return Result.build("1","删除调度成功");
+        return Result.build("0","删除调度失败");
     }
     public Result deleteWayBillsFromJourneyRecord(String str,String dispatchId){
         String[] arr=str.split(",");

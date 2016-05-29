@@ -18,7 +18,7 @@ public class ShiroExceptionResolver implements HandlerExceptionResolver {
                                          HttpServletResponse response, Object handler, Exception ex) {
         System.out.println("cabeza  qwer");
 
-        return new ModelAndView("redirect:/shiro/unauthor","1","2");
+        return new ModelAndView("shiro/unauthor");
     }
 
 }

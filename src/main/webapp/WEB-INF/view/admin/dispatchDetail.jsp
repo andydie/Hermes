@@ -108,6 +108,10 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div calss="row">
+                        <button class="btn btn-danger" id="delete">删除</button>
                     </div>
                     <!-- /.panel-body -->
                 </div>

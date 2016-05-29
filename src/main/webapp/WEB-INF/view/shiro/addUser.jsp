@@ -58,6 +58,9 @@
                                         <label>用户名</label>
                                         <input id="user-name" class="form-control">
                                     </div>
+                                    <div class="alert alert-warning user-name-alert" style="display:none;" role="alert">
+                                        用户名已被占用
+                                    </div>
                                     <div class="form-group">
                                         <label>密码</label>
                                         <input id="password" type="password" class="form-control">

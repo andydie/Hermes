@@ -55,6 +55,14 @@ public class ShiroService {
         return role;
     }
 
+    public Result getUserNameCount(String userName){
+        int result=new Eql().selectFirst("getUserNameCount").params(Collections.asMap("username",userName)).returnType(Integer.class).execute();
+        if(result>0)
+            return  Result.build("0","用户名重复");
+        return Result.build("1","用户名可用");
+
+    }
+
     public Result addRole(Role role){
         int result=new Eql().insert("addRole").params(role).execute();
         if(result>0)

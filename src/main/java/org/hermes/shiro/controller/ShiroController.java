@@ -59,7 +59,7 @@ public class ShiroController {
         return shiroService.getRoleById(roleId);
     }
 
-    @RequiresPermissions("role:delete")
+    @RequiresPermissions("user:delete")
     @ResponseBody
     @RequestMapping("delete-user/{userId}")
     public Result deleteUser(@PathVariable String userId){
@@ -110,6 +110,12 @@ public class ShiroController {
         Subject subject= SecurityUtils.getSubject();
         Session session=subject.getSession();
         return (String)session.getAttribute("staffId");
+    }
+
+    @ResponseBody
+    @RequestMapping("checkUserName")
+    public Result getUserNameCount(@RequestParam String username){
+        return shiroService.getUserNameCount(username);
     }
 
     @RequestMapping("user/list")

@@ -36,28 +36,9 @@
                 <div class="hidden-xs hidden-sm" style="line-height:20px; padding-top:5px; float:left"><a
                         href="#">Home</a></div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Overview</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Projects</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">People <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Overview</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">WTF <span
-                                class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Sponsorship</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="login/login">Login</a></li>
+                    <li><a class="regist-btn" href="#">注册</a></li>
+
+                    <li><a href="login/login">登录</a></li>
                 </ul>
             </div>
         </div>
@@ -233,6 +214,53 @@
         </div>
     </div>
 </footer>
+<div class="regist-user modal fade"tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">注册</h4>
+            </div>
+            <div class="modal-body row">
+                <div class="col-xs-12">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input id="user-name" class="form-control">
+                        </div>
+                        <div class="alert alert-warning user-name-alert" style="display:none;" role="alert">
+                            用户名已被占用
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input id="password" type="password" class="form-control">
+                            <p class="help-block">密码不宜太简单</p>
+                        </div>
+                        <div class="form-group">
+                            <label>真实姓名</label>
+                            <input id="staff-name" type="text" class="form-control">
+                            <p class="help-block">请如实填写</p>
+                        </div>
+                        <div class="form-group">
+                            <label>联系方式</label>
+                            <input id="staff-tel" type="number" class="form-control">
+                            <p class="help-block">请如实填写</p>
+                        </div>
+                        <div class="alert alert-success hide" role="alert">
+                            创建成功!
+                        </div>
+                        <div class="alert alert-danger hide" role="alert">
+                            创建失败,未知原因!
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="add-user" type="button" class="btn btn-primary modal-confirm">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
