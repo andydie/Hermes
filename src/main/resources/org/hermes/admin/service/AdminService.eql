@@ -478,3 +478,7 @@ ORDER BY wb.create_time DESC
 UPDATE hermes_dispatch
 SET delete_state=0
 WHERE id=#id#
+
+--[getWayBillID]
+SELECT id FROM hermes_waybill
+order by id desc

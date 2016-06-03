@@ -24,7 +24,7 @@ require(['jquery',
         KindEditor.ready(function (K) {
                 editor = K.create('#edit-area');
             });
-        editor = KindEditor.create('#edit-area');
+
         setTimeout(function(){
             editor==null&&(editor = KindEditor.create('#edit-area'))&&editor.html(articleData.content);
         },1000);

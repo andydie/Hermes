@@ -256,6 +256,11 @@ public class AdminController {
     public List<DispatchInfo> getJourneyRecordByWayBillId(@PathVariable String wayBillId){
         return adminService.getJourneyRecordByWayBillId(wayBillId);
     }
+    @ResponseBody
+    @RequestMapping("getWayBillID")
+    public Result getWayBillID(){
+        return adminService.getWayBillID();
+    }
 
     @RequestMapping("addWayBill")
     public String gotoAddWayBill(){
@@ -312,4 +317,11 @@ public class AdminController {
     public String gotoWayBillSearch(){
         return "admin/waybillSearch";
     }
+
+    @RequestMapping("waybill/showId")
+    public String gotoWayBillId(){
+        return "admin/wayBillShowId";
+    }
+
+
 }

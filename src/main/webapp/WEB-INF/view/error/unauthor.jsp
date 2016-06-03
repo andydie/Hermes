@@ -22,12 +22,21 @@
 <body>
 <div class="full-scene">
     <div class="center">
-        <h1><shiro:principal/>,您没有相应权限。</h1>
-        <h2>
-            <a href="javascript:history.go(-1);">
-                返回上一页
-            </a>
-        </h2>
+        <shiro:user>
+            <h1><shiro:principal/>,您没有相应权限。</h1>
+
+            <h2>
+                <a href="javascript:history.go(-1);">
+                    返回上一页
+                </a>
+            </h2>
+        </shiro:user>
+        <shiro:guest>
+            <h1>登录已过期</h1>
+            <h2><a href="login/login">
+                登录
+            </a></h2>
+        </shiro:guest>
     </div>
 </div>
 </body>

@@ -50,6 +50,7 @@
         <property name="loginUrl" value="/login/login"/>
         <property name="filterChainDefinitions">
             <value>
+                /admin/ajax/getJourneyRecordByWayBillId/**=anon
                 /login/** = anon
                 /index=anon
                 /logout = logout

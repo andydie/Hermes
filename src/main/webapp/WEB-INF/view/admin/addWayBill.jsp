@@ -67,7 +67,7 @@
                                     <label>价格</label>
                                     <div class="input-group form-group">
                                         <span class="input-group-addon">￥</span>
-                                        <input id="expense" type="number" class="form-control">
+                                        <input id="expense" type="number" class="form-control not-null">
                                         <span class="input-group-addon">元</span>
                                     </div>
                                 </form>
@@ -76,18 +76,18 @@
                             <div class="col-lg-6">
                                 <label>重量</label>
                                 <div class="input-group form-group">
-                                    <input id="weight" type="number" class="form-control">
+                                    <input id="weight" type="number" class="form-control not-null">
                                     <span class="input-group-addon">千克</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>发件人</label>
+                                    <label>发件人与地址</label>
                                     <input id="sender" class="form-control not-null">
-                                    <p class="help-block">真实的姓名信息</p>
+                                    <p class="help-block">真实的姓名信息与联系方式</p>
                                 </div>
                                 <div class="form-group">
-                                    <label>收件人</label>
+                                    <label>收件信息</label>
                                     <input id="receiver" class="form-control not-null">
-                                    <p class="help-block">真实的姓名信息</p>
+                                    <p class="help-block">真实的姓名信息与联系方式</p>
                                 </div>
                             </div>
                             <!-- /.col-lg-6 (nested) -->

@@ -253,4 +253,9 @@ public class AdminService {
         return new Eql().params(Collections.asMap("beginTime",beginTime,"endTime",endTime))
                 .returnType(WayBill.class).execute();
     }
+
+    public Result getWayBillID(){
+        int id=new Eql().selectFirst("getWayBillID").returnType(Integer.class).execute();
+        return Result.build(id+"","运单号");
+    }
 }

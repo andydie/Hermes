@@ -80,4 +80,10 @@ public class AdminServiceTest {
         initService();
         log.info(adminService.queryWayBillLimitTime("1463587200000","1463590243675").toString());
     }
+
+    @Test
+    public void getWayBillIDTest(){
+        initService();
+        log.info(adminService.getWayBillID().toString());
+    }
 }
